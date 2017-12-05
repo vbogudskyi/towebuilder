@@ -18,6 +18,7 @@ public class Rectangle extends Parallelogramm{
      * Rectangle default constructor
      * @param width - width of the rectangle
      * @param height - height of the rectangle;
+     * @version 1.0
      */
     public Rectangle(double width, double height) {
         super(M.figures_2d.RECTANGLE, width, height, 90);
@@ -26,6 +27,7 @@ public class Rectangle extends Parallelogramm{
     /**
      * Rectangle constructor of copy. Creates a new rectangle on the base of existing one
      * @param rect base rectangle
+     * @version 1.0
      */
     public Rectangle(Rectangle rect)
     {

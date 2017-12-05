@@ -141,7 +141,6 @@ public class MenuStrategy {
      * Method generates sub menus
      * @param position - type of sub menu
      * @return menu
-     * The codes will be refactored at the weekends
      */
     public Menu getSubMenu(int position)
     {

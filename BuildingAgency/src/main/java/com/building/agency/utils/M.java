@@ -111,7 +111,14 @@ public final class M {
        
        public static final String PARALLEL_TRIANGLE = "Parallel triangle";
        public static final String TETRAHEDRON = "Tetrahedron";
+       /***************************************/
        
+       public static final String EVOLUTION_TOWER = "The evolution tower";
+       public static final String WORLD_TRADE_CENTER = " One world trade center";
+       /****************************************/
+       
+       
+      
    }
    
    public static final class menus
@@ -127,6 +134,13 @@ public final class M {
        public static final int CUPOLAE_MENU = 206;
        public static final int ANTIPRISM_MENU = 207;
        public static final int WEDGES_MENU = 208;
+       public static final int ANTIPRISM_PORTFOLIO_MENU = 209;
+       public static final int CUPOLAE_PORTFOLIO_MENU = 210;
+       public static final int FRUSTA_PORTFOLIO_MENU = 211;
+       public static final int PRISM_PORTFOLIO_MENU = 212;
+       public static final int PYRAMIDS_PORTFOLIO_MENU = 213;
+       public static final int SPHERE_PORTFOLIO_MENU = 214;
+       public static final int WEDGES_PORTFOLIO_MENU = 215;
    }
    
    public static final class message

@@ -16,9 +16,7 @@ import java.util.Scanner;
  */
 public abstract class ApplicationContext {
     
-    private Scanner scanner = null; // declares an application console reader
-    private Scanner fileScanner = null; // declares an application file reader
-    
+    private Scanner scanner = null; // declares an application console reader    
     /**
      * Method declares default application context constructor
      * Initializes console reader
@@ -26,19 +24,7 @@ public abstract class ApplicationContext {
     public ApplicationContext()
     {
         scanner = new Scanner(System.in);
-    }
-    
-    /**
-     * Method declares application context constructor
-     * @param file reader output file
-     * @throws IOException if a file is not found
-     */
-    public ApplicationContext(File file) throws IOException
-    {
-         scanner = new Scanner(System.in);
-         fileScanner = new Scanner(new FileInputStream(file));
-    }
-    
+    }  
     /**
      * Fires, when application start
      */
@@ -65,10 +51,6 @@ public abstract class ApplicationContext {
     // Accessors and mutators
     public Scanner getConsoleScanner() {
         return scanner;
-    }
-    
-    public Scanner getFileScanner(){
-        return fileScanner;
     }
     
 }
