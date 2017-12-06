@@ -46,7 +46,7 @@ public class MenuStrategy {
      */
     public MenuStrategy(ApplicationContext context)
     {
-        this.context = context;
+        this.context = context; // application context is assigned here
     }
     /**
      * Method creates a new menu
@@ -55,52 +55,52 @@ public class MenuStrategy {
      */ 
     private Menu createMenu(int menu_type)
     {
-        Menu menu = null;
+        Menu menu = null; // current menu
         switch(menu_type)
         {
-            case M.menus.RESOURCE_MENU:
-            {
-                menu = new ResourcesMenu();
+            case M.menus.RESOURCE_MENU: // resources menu is chosen
+            { 
+                menu = new ResourcesMenu(); //resources menu is created
                 break;
             }
-            case M.menus.MAIN_MENU:
+            case M.menus.MAIN_MENU: // main menu is chosen
             {
-                menu = new MainMenu(context);
+                menu = new MainMenu(context); //main menu is created
                 break;
             }
-            case M.menus.PYRAMIDS_MENU:
+            case M.menus.PYRAMIDS_MENU: // pyramids menu is chosen
             {
-                menu = new PyramidsMenu(context);
+                menu = new PyramidsMenu(context); //pyramids menu is created
                 break;
             }
-            case M.menus.PRISM_MENU:
+            case M.menus.PRISM_MENU: // prism menu is chosen
             {
-                menu = new PrismMenu(context);
+                menu = new PrismMenu(context); //prism menu is created
                 break;
             }
-            case M.menus.SPHERE_MENU:
+            case M.menus.SPHERE_MENU: // sphere menu is chosen
             {
-                menu = new SpheresMenu(context);
+                menu = new SpheresMenu(context); //spheres menu is created
                 break;
             }
-            case M.menus.FRUSTA_MENU:
+            case M.menus.FRUSTA_MENU: // frusta menu is chosen
             {
-                menu = new FrustaMenu(context);
+                menu = new FrustaMenu(context); //frusta menu is created
                 break;
             }
-            case M.menus.CUPOLAE_MENU:
+            case M.menus.CUPOLAE_MENU: // cupolae menu is chosen
             {
-                menu = new CupolaeMenu(context);
+                menu = new CupolaeMenu(context); //cupolae menu is created
                 break;
             }
-            case M.menus.ANTIPRISM_MENU:
+            case M.menus.ANTIPRISM_MENU: // antiprism menu is chosen
             {
-                menu = new AntiprismMenu(context);
+                menu = new AntiprismMenu(context); //antiprism menu is created
                 break;
             }
-            case M.menus.WEDGES_MENU:
+            case M.menus.WEDGES_MENU: // wedges menu is chosen
             {
-                menu = new WedgesMenu(context);
+                menu = new WedgesMenu(context); //wedges menu is created
                 break;
             }
         }
@@ -113,10 +113,10 @@ public class MenuStrategy {
      */
     public Menu getMainMenu()
     {
-        if(mainMenu == null)
+        if(mainMenu == null) //if main menu is not instantiated
         {
-           mainMenu = createMenu(M.menus.MAIN_MENU);
-           mainMenu.populateMenu();
+           mainMenu = createMenu(M.menus.MAIN_MENU); // creates a main menu
+           mainMenu.populateMenu(); //
         }
         
         return mainMenu;
@@ -128,10 +128,9 @@ public class MenuStrategy {
      */
     public Menu getResourceMenu()
     {
-        //System.out.println(String.format(M.dialogs.MANAGER_SPEECH3, MANAGER));
-        if(resourceMenu == null)
+        if(resourceMenu == null) // if resources menu is not instantiated
         {
-           resourceMenu = createMenu(M.menus.RESOURCE_MENU);
+           resourceMenu = createMenu(M.menus.RESOURCE_MENU); // creates a resources menu
         }
         
         return resourceMenu;
@@ -144,70 +143,70 @@ public class MenuStrategy {
      */
     public Menu getSubMenu(int position)
     {
-        Menu currentMenu = null;
+        Menu currentMenu = null; // a current sub menu to work
         switch(position)
          {
              case M.menus.SPHERE_MENU: // if Spheres are chosen
              {
-                 if(spheresSubMenu == null)
+                 if(spheresSubMenu == null) // check if spheres sub menu is created
                  {
-                     spheresSubMenu = createMenu(position);
+                     spheresSubMenu = createMenu(position); // creates a spheres sub menu
                  }
-                 currentMenu = spheresSubMenu;
+                 currentMenu = spheresSubMenu; // current menu is spheres menu
                  break;
              }
              case M.menus.PYRAMIDS_MENU: // if Pyramids are chosen
              {
                  if(pyramidSubMenu == null)
                  {
-                     pyramidSubMenu = createMenu(position);
+                     pyramidSubMenu = createMenu(position); // creates a pyramids sub menu
                  }
-                 currentMenu = pyramidSubMenu;
+                 currentMenu = pyramidSubMenu; // current menu is pyramids sub menu
                  break;
              }
              case M.menus.PRISM_MENU: // if Prisms are chosen
              { 
                  if(prismsSubMenu == null)
                  {
-                     prismsSubMenu = createMenu(position);
+                     prismsSubMenu = createMenu(position); // creates a prism sub menu
                  }
-                 currentMenu = prismsSubMenu;
+                 currentMenu = prismsSubMenu; // current menu is prism sub menu
                  break;
              }
              case M.menus.FRUSTA_MENU: // if Frustas are chosen
              {
                  if(frustaMenu == null)
                  {
-                     frustaMenu = createMenu(position);
+                     frustaMenu = createMenu(position); // creates a frusta sub menu
                  }
-                 currentMenu = frustaMenu;
+                 currentMenu = frustaMenu; // current menu is frusta sub menu
                  break;
              }
-             case M.menus.CUPOLAE_MENU:
+             case M.menus.CUPOLAE_MENU: // if Cupolae are chosen
              {
                  if(cupolaeMenu == null)
                  {
-                     cupolaeMenu = createMenu(position);
+                     cupolaeMenu = createMenu(position); // creates a cupolae sub menu
                  }
-                 currentMenu = cupolaeMenu;
+                 currentMenu = cupolaeMenu; // current menu is cupolae sub menu
                  break;
              }
-             case M.menus.ANTIPRISM_MENU:
+             case M.menus.ANTIPRISM_MENU: // if Antiprism are chosen
              {
                  if(antiprismMenu == null)
                  {
-                     antiprismMenu = createMenu(position);
+                     antiprismMenu = createMenu(position); // creates a antiprism sub menu
                  }
-                 currentMenu = antiprismMenu;
+                 currentMenu = antiprismMenu; // current menu is antiprism sub menu
                  break;
              }
-             case M.menus.WEDGES_MENU:
+             case M.menus.WEDGES_MENU: // if Wedges are chosen
              {
                  if(wedgesMenu == null)
                  {
-                     wedgesMenu = createMenu(position);
+                     wedgesMenu = createMenu(position); // creates a wedges sub menu
                  }
-                 currentMenu = wedgesMenu;
+                 currentMenu = wedgesMenu; // current menu is wedges sub menu
                  break;
              }
          }
@@ -222,10 +221,10 @@ public class MenuStrategy {
     {
         if(menu != null)
         {
-            System.out.println(menu.getHeader());
-            List<MenuItemModel> items = menu.getItems();
+            System.out.println(menu.getHeader()); // header menu is displayed
+            List<MenuItemModel> items = menu.getItems(); // menu items are retrieved
             items.forEach((item) -> {
-                System.out.println(item.getItemPosition()+": "+item.getItemValue());
+                System.out.println(item.getItemPosition()+": "+item.getItemValue()); // each element of menu is printed
             });
         }
     }
@@ -238,18 +237,18 @@ public class MenuStrategy {
      */
      public String makeUserChoice(List<String> items, Scanner scanner)
      {
-        String message = "Please, make your choice: ";
-        String error_message = "This option is not available in the menu. Please try again";
-        String choice = "";
+        String message = "Please, make your choice: "; // current console message
+        String error_message = "This option is not available in the menu. Please try again"; // error message
+        String choice = ""; // user choice is stored here
         while(true)
         {
-            System.out.print(message);
-            choice = scanner.nextLine();
-            if(items.contains(choice))
+            System.out.print(message); // console message is printed
+            choice = scanner.nextLine(); // user choice is expected here
+            if(items.contains(choice)) // if choice is relevant - choice is accepted
                 break;
             else
             {
-                System.out.println(error_message);
+                System.out.println(error_message); // else - error message is printed
             }
         }
         return choice;

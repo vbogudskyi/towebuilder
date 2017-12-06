@@ -5,6 +5,7 @@
  */
 package com.building.agency.cofigure.io.console;
 
+import com.building.agency.cofigure.app.ApplicationContext;
 import com.building.agency.cofigure.io.FileIO;
 import java.io.InputStream;
 
@@ -15,7 +16,8 @@ import java.io.InputStream;
  */
 public abstract class ContentProvider {
     
-    private FileIO io = null;
+    private FileIO io = null; //file io utils are stored here
+    private ApplicationContext context = null; // application context is tored here
     /**
      * Declares a data input stream
      * @param input - data input stream 

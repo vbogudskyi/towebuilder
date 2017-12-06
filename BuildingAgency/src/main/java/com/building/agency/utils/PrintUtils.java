@@ -19,6 +19,7 @@ public final class PrintUtils {
      */
     public static final void printMainMenuHeader()
     {
+        // prints a main menu header
         System.out.println("----------Welcome to Construct & Build Company!----------");
     }
     
@@ -28,7 +29,7 @@ public final class PrintUtils {
      */
     public static final void printMessage(String message)
     {
-        System.out.println(message);
+        System.out.println(message); // prints a message
     }
     
 }

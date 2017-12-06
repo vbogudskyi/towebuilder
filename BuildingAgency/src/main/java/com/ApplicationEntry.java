@@ -15,13 +15,15 @@ import com.building.agency.cofigure.app.ApplicationContext;
  */
 public class ApplicationEntry {
 
-    /**
+    /** 
+     * Application entry main method
      * @param args the command line arguments
+     * @version 1.0
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ApplicationContext context = new BuildingAgency();
-        context.onApplicationStart();
+        ApplicationContext context = new BuildingAgency(); // application instance is initialized
+        context.onApplicationStart(); // application started
     }
     
 }

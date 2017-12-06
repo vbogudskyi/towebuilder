@@ -16,15 +16,19 @@ public class ApplicationShutdownHook extends Thread{
     
     private ApplicationContext context = null; //application context is stored here
     
+    /**
+     * Application shutdown hook default constructor
+     * @param context - application context
+     */
     public ApplicationShutdownHook(ApplicationContext context)
     {
-        this.context = context;
+        this.context = context; // context is stored here
     }
 
     @Override
     public void run() {
         super.run(); //To change body of generated methods, choose Tools | Templates.
-        context.onApplicationTerminate();
+        context.onApplicationTerminate(); // application terminate callback is called here
     }
     
     

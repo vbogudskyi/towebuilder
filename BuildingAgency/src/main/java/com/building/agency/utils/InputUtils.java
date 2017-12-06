@@ -24,20 +24,20 @@ public class InputUtils {
      */
     public static final String getCustomerName(Scanner scanner)
     {
-        String message = "Please enter your name: ";
-        String updated_message = "Please re-enter your name: ";
-        String current_message = message;
-        String customer = null;
-         while (StringUtils.isNullOrEmpty(customer)) {
-            System.out.print(current_message);
-            customer = scanner.nextLine();
-            if (StringUtils.isNullOrEmpty(customer)) {
-                current_message = updated_message;
-                scanner.nextLine();
+        String message = "Please enter your name: "; // Main prompt message
+        String updated_message = "Please re-enter your name: "; // Updated prompt message
+        String current_message = message; // current message is set
+        String customer = null; // customer reference is stored here
+         while (StringUtils.isNullOrEmpty(customer)) { // a loop works until the customer name is entered
+            System.out.print(current_message); // current message is printed on the console
+            customer = scanner.nextLine(); // customer name is expected here
+            if (StringUtils.isNullOrEmpty(customer)) { //check if the customer name is entered
+                current_message = updated_message; //current message is updated message
+                scanner.nextLine(); // customer name is expected here
             }
         }
          
-       return customer;
+       return customer; //return a customer name
     }
     
     /**
@@ -47,28 +47,29 @@ public class InputUtils {
      */
     public static final void chooseMenuItem(ApplicationContext context, int menuType)
     {
-       CompanyContext ctx = (CompanyContext)context; 
-       Menu menu;
+       CompanyContext ctx = (CompanyContext)context; // context explicit cast to CpmpanyContext
+       Menu menu; // current menu
        switch(menuType)
        {
            case M.menus.MAIN_MENU:
            {
-               menu = ctx.getMenus().getMainMenu();
+               menu = ctx.getMenus().getMainMenu(); // main menu is built and created
                break;
            }
            
            default:
            {
-               menu = ctx.getMenus().getSubMenu(menuType);
+               menu = ctx.getMenus().getSubMenu(menuType); // submenu is built and created
                break;
            }
        }
        if(menu != null)
        {
-           menu.populateMenu();
-           ctx.getMenus().printMenu(menu);
+           menu.populateMenu(); // menu ites and listeners are set
+           ctx.getMenus().printMenu(menu); // menu is printed on the console
+           // item menu is chosen by the user
            String choice = ctx.getMenus().makeUserChoice(menu.getItemsPositions(), ctx.getConsoleScanner());
-           menu.populateUserDesicion(choice);
+           menu.populateUserDesicion(choice); // check if user decision is relevant
        }
     }
     

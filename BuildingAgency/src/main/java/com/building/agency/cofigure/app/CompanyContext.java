@@ -25,11 +25,12 @@ public abstract class CompanyContext extends ApplicationContext {
       */
      public CompanyContext()
      {
-         init = PlayerInit.getInstance();
-         figureStrategy = new FigureStrategy(this);
-         menuStrategy = new MenuStrategy(this);
+         init = PlayerInit.getInstance(); // players container instance is got here
+         figureStrategy = new FigureStrategy(this); // figure strategy instance is created here
+         menuStrategy = new MenuStrategy(this); // menu strategy instance is created here
      }
 
+    // Accessors and mutators 
     public FigureStrategy getFigures() {
         return figureStrategy;
     }

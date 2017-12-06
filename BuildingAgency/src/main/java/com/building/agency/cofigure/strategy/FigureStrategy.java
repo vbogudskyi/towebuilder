@@ -23,11 +23,11 @@ import java.util.Scanner;
  */
 public class FigureStrategy {
     
-    private ApplicationContext context = null; // application in scanner
+    private ApplicationContext context = null; // application context is stored here
     
     public FigureStrategy(ApplicationContext context)
     {
-        this.context = context;
+        this.context = context; // application context is assigned here
     }
     
     /**

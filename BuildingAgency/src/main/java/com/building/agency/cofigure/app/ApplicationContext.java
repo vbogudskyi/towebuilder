@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package com.building.agency.cofigure.app;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Scanner;
 /**
  * Declares an application context
@@ -23,7 +19,7 @@ public abstract class ApplicationContext {
      */
     public ApplicationContext()
     {
-        scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in); // console scanner instance is created here
     }  
     /**
      * Fires, when application start
@@ -43,7 +39,7 @@ public abstract class ApplicationContext {
     @Override
     protected void finalize() throws Throwable {
         super.finalize(); //To change body of generated methods, choose Tools | Templates.
-        dispose();
+        dispose(); // calls when gc starts working
     }
     
     
