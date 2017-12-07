@@ -16,7 +16,7 @@ import com.building.agency.cofigure.io.FileIO;
  * @author vbohudskyi
  * @version 1.0
  */
-public abstract class ContentProvider {
+public class ContentProvider {
     
     private FileIO io = null; //file io utils are stored here
     private ApplicationContext context = null; // application context is tored here

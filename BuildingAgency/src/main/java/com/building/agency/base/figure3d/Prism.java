@@ -5,6 +5,9 @@
  */
 package com.building.agency.base.figure3d;
 
+import com.building.agency.base.Figure2d;
+import com.building.agency.utils.M;
+
 /**
  * Declares a prism
  * @author vbohudskyi
@@ -12,13 +15,18 @@ package com.building.agency.base.figure3d;
  */
 public class Prism extends Parallelepiped {
     
+    private Figure2d base = null; // a base figure of a prism
+    private double height = 0; // a height of a prism
+    
     /**
      * Prism default constructor
-     * @param figure - prism type
-     * @param base_figure - prism base
+     * @param base - base figure of a prism
+     * @param height - height of a prism
      */
-    public Prism(int figure, int base_figure) {
-        super(figure, base_figure);
+    public Prism(Figure2d base, double height) {
+        super(M.figure_3d.PRISM, base.getCurrentFigure());
+        this.base = base;
+        this.height = height;
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package com.building.agency.cofigure.app;
 
+import com.building.agency.cofigure.io.console.ContentProvider;
 import com.building.agency.cofigure.strategy.CupolaeStrategy;
 import com.building.agency.cofigure.strategy.FigureStrategy;
 import com.building.agency.cofigure.strategy.MenuStrategy;
@@ -22,6 +23,8 @@ public abstract class CompanyContext extends ApplicationContext {
      private CupolaeStrategy cupolaeStrategy = null; // cupolae strategy is stored here
      private PlayerInit init = null; // Player's initializer is stored here
      
+     private ContentProvider provider = null; // application content provider is stored here
+     
      /**
       * 
       */
@@ -31,6 +34,7 @@ public abstract class CompanyContext extends ApplicationContext {
          figureStrategy = new FigureStrategy(this); // figure strategy instance is created here
          menuStrategy = new MenuStrategy(this); // menu strategy instance is created here
          cupolaeStrategy = new CupolaeStrategy(); // cupolae strategy instance is created
+         provider = new ContentProvider(this); // application content provider instance is created;
      }
 
     // Accessors and mutators 
@@ -49,5 +53,10 @@ public abstract class CompanyContext extends ApplicationContext {
      public PlayerInit getBusinessPlayers()
      {
          return init;
+     }
+     
+     public ContentProvider getApplicationContentProvider()
+     {
+         return provider;
      }
 }

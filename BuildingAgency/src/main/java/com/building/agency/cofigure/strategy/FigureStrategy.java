@@ -7,6 +7,7 @@ package com.building.agency.cofigure.strategy;
 
 import com.building.agency.base.Figure2d;
 import com.building.agency.base.Figure3d;
+import com.building.agency.base.figure3d.Prism;
 import com.building.agency.base.figures2d.Circle;
 import com.building.agency.base.figures2d.Parallelogramm;
 import com.building.agency.base.figures2d.Rectangle;
@@ -119,20 +120,27 @@ public class FigureStrategy {
     {
         CompanyContext ctx = (CompanyContext)context; // application context is explicitly casted into CompanyContext
         Figure3d newFigure = null; // 3d figure is stored here
+        Figure2d base_figure = buildFigure2D(base); // base figure is stored here
+        double height = 0; // the height of 3d figure is stored here
         switch(figure)
         {
             case M.figure_3d.CUPOLAE: // if some kind of cupolae is chosen
             {
-                Figure2d base_figure = buildFigure2D(base); // cupolae base is stored here
-                double height = InputUtils.getDoubleValue(context, M.dialogs.FIGURE_3D_HEIGHT, 
-                    M.dialogs.FIGURE_3D_HEIGHT_ERROR); // cupolae height is stored here
+                height = InputUtils.getDoubleValue(context, M.dialogs.FIGURE_3D_HEIGHT, 
+                    M.dialogs.FIGURE_3D_HEIGHT_ERROR); // cupolae height is calculated here
                 
                 newFigure = ctx.getCupolaeStrategy().buildCupolae(M.figure_3d.DIAGONAL_CUPOLAE, 
                         base_figure, height); // cupolae is created
                 break;
             }
             
-            
+            case M.figure_3d.PRISM:
+            {
+                height = InputUtils.getDoubleValue(context, M.dialogs.FIGURE_3D_HEIGHT, 
+                    M.dialogs.FIGURE_3D_HEIGHT_ERROR); // prism height is calculated here
+                newFigure = new Prism(base_figure, height);
+                break;
+            }
         }
         
         return newFigure;
@@ -143,9 +151,10 @@ public class FigureStrategy {
      * @param base - 2D figure, a base of 3D figure
      * @param upper - 2D figure, an upper base of 3D figure
      * @param figure - 3D figure type
+     * @param sub_figure
      * @return 3D figure
      */
-    public Figure3d buildFigure3D(int base, int upper, int figure)
+    public Figure3d buildFigure3D(int base, int upper, int figure, int sub_figure)
     {
         CompanyContext ctx = (CompanyContext)context; // application context is explicitly casted into CompanyContext
         Figure3d newFigure = null; // 3d figure is stored here
@@ -158,7 +167,7 @@ public class FigureStrategy {
                 double height = InputUtils.getDoubleValue(context, M.dialogs.FIGURE_3D_HEIGHT, 
                     M.dialogs.FIGURE_3D_HEIGHT_ERROR); // cupolae height is stored here
                 
-                newFigure = ctx.getCupolaeStrategy().buildCupolae(M.figure_3d.DIAGONAL_CUPOLAE, 
+                newFigure = ctx.getCupolaeStrategy().buildCupolae(sub_figure, 
                         base_figure, upper_base, height); // cupolae is created
                 break;
             }

@@ -33,6 +33,10 @@ public abstract class Figure2d {
     */ 
    protected abstract double calculateArea();
    
+   /**
+    * Method retrieves math utilities
+    * @return 
+    */
    protected Math2dUtils getMathUtils()
    {
        return utils;
@@ -46,5 +50,14 @@ public abstract class Figure2d {
    public boolean isFigure(int figure)
    {
        return currentFigure == figure;
+   }
+   
+   /**
+    * Method returns current figure value
+    * @return 
+    */
+   public int getCurrentFigure()
+   {
+       return currentFigure;
    }
 }

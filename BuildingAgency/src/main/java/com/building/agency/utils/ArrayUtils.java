@@ -12,7 +12,7 @@ package com.building.agency.utils;
  */
 public abstract class ArrayUtils {
 
-    private DataStorage data ;
+    private DataStorage data = null; // data storage is assigned here
     
     public abstract void onSuccess(double data);// method calls in cases of success 
     public abstract void onFailure(double data);// method calls in case of failure
