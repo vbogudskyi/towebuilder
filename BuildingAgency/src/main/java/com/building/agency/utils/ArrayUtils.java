@@ -24,7 +24,7 @@ public abstract class ArrayUtils {
      */
     public void addData(double data) {
         if (this.data.addData(data)) {
-           onSuccess(data);
+           onSuccess(data);//calls the onSuccess class
         } else 
            onFailure(data);
     }  
