@@ -18,6 +18,15 @@ public abstract class ArrayUtils {
     public abstract void onFailure(double data);// method calls in case of failure
     
     /**
+     * Declare the constructor for ArrayUtils 
+     * @param capacity of the Array length
+     * @version 1.0
+     */
+    public ArrayUtils(int capacity){
+        
+        data = new DataStorage(capacity);// creates data storage
+    }
+    /**
      * method to add data
      * @param data to be added
      * @version 1.0
