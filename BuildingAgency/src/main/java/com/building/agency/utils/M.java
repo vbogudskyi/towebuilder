@@ -30,7 +30,7 @@ public final class M {
    {
        private figure_3d(){}
        
-       public static final int NONE = 0;
+       public static final int NONE = 100;
        public static final int PYRAMID = 101;
        public static final int ANTIPRISM = 102;
        public static final int CUPOLAE = 103;
@@ -41,6 +41,7 @@ public final class M {
        public static final int WEDGE = 108;
        public static final int DIAGONAL_CUPOLAE = 109;
        public static final int TRANGULAR_CUPOLAE = 110;
+       public static final int SQUARE_CUPOLAE = 111;
    }
     
    public static final class errors
@@ -163,7 +164,7 @@ public final class M {
        /***************************************/
        
        public static final String EVOLUTION_TOWER = "The evolution tower";
-       public static final String WORLD_TRADE_CENTER = " One world trade center";
+       public static final String WORLD_TRADE_CENTER = "One world trade center";
        /****************************************/
        
        

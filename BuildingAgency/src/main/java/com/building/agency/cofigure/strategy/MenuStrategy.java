@@ -18,6 +18,13 @@ import com.building.agency.cofigure.strategy.menu.PyramidsMenu;
 import com.building.agency.cofigure.strategy.menu.ResourcesMenu;
 import com.building.agency.cofigure.strategy.menu.SpheresMenu;
 import com.building.agency.cofigure.strategy.menu.WedgesMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.AntiprismPortfolioMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.CupolaePortfolioMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.FrustaPortfolioMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.PrismPortfolioMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.PyramidsPortfolioMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.SpherePortfolioMenu;
+import com.building.agency.cofigure.strategy.menu.portfolio.WedgesPortfolioMenu;
 import com.building.agency.utils.M;
 import java.util.List;
 import java.util.Scanner;
@@ -40,6 +47,14 @@ public class MenuStrategy {
     private Menu cupolaeMenu = null; // Cupola menu is stored here
     private Menu antiprismMenu = null; // antiprism menu is stored here
     private Menu wedgesMenu = null; // wedges menu is stored here
+    private Menu antiprismPortfolioMenu = null; // antiprism portfolio menu is stored here
+    private Menu cupolaePortfolioMenu = null; // cupolae portfolio menu is stored here
+    private Menu frustaPorfolioMenu = null; // frusta portfolio menu is stored here
+    private Menu prismPorfolioMenu = null; // prism portfolio menu is stored here
+    private Menu pyramidsPorfolioMenu = null; // pyramids portfolio menu is stored here
+    private Menu spheresPorfolioMenu = null; // spheres portfolio menu is stored here
+    private Menu wedgesPorfolioMenu = null; // wedge portfolio menu is stored here
+    
     /**
      * Menu strategy default constructor
      * @param context application context
@@ -101,6 +116,41 @@ public class MenuStrategy {
             case M.menus.WEDGES_MENU: // wedges menu is chosen
             {
                 menu = new WedgesMenu(context); //wedges menu is created
+                break;
+            }
+            case M.menus.ANTIPRISM_PORTFOLIO_MENU: // antiprism portfolio menu is chosen
+            {
+                menu = new AntiprismPortfolioMenu(context); // antiprism porfolio menu is created
+                break;
+            }
+            case M.menus.CUPOLAE_PORTFOLIO_MENU: // cupolae portfolio menu is chosen
+            {
+                menu = new CupolaePortfolioMenu(context); // cupolae porfolio menu is created
+                break;
+            }
+            case M.menus.FRUSTA_PORTFOLIO_MENU: // frusta portfolio menu is chosen
+            {
+                menu = new FrustaPortfolioMenu(context); // frusta porfolio menu is created
+                break;
+            }
+            case M.menus.PRISM_PORTFOLIO_MENU: // prism portfolio menu is chosen
+            {
+                menu = new PrismPortfolioMenu(context); // prism porfolio menu is created
+                break;
+            }
+            case M.menus.PYRAMIDS_PORTFOLIO_MENU: // pyramids portfolio menu is chosen
+            {
+                menu = new PyramidsPortfolioMenu(context); // pyramids porfolio menu is created
+                break;
+            }
+            case M.menus.SPHERE_PORTFOLIO_MENU: // sphere portfolio menu is chosen
+            {
+                menu = new SpherePortfolioMenu(context); // spheres porfolio menu is created
+                break;
+            }
+            case M.menus.WEDGES_PORTFOLIO_MENU: // wedge portfolio menu is chosen
+            {
+                menu = new WedgesPortfolioMenu(context); // wedge porfolio menu is created
                 break;
             }
         }
@@ -207,6 +257,76 @@ public class MenuStrategy {
                      wedgesMenu = createMenu(position); // creates a wedges sub menu
                  }
                  currentMenu = wedgesMenu; // current menu is wedges sub menu
+                 break;
+             }
+             
+             case M.menus.ANTIPRISM_PORTFOLIO_MENU: // if antiprism portfolio menu is chosen
+             {
+                 if(antiprismPortfolioMenu == null)
+                 {
+                     antiprismPortfolioMenu = createMenu(position); // creates antiprism portfolio menu
+                 }
+                 currentMenu = antiprismPortfolioMenu; // current menu is antiprism portfolio menu
+                 break;
+             }
+             
+             case M.menus.CUPOLAE_PORTFOLIO_MENU: // if cupolae portfolio menu is chosen
+             {
+                 if(cupolaePortfolioMenu == null)
+                 {
+                     cupolaePortfolioMenu = createMenu(position); // creates cupolae portfolio menu
+                 }
+                 currentMenu = cupolaePortfolioMenu; // current menu is cupolae portfolio menu
+                 break;
+             }
+             
+             case M.menus.FRUSTA_PORTFOLIO_MENU: // if frusta portfolio menu is chosen
+             {
+                 if(frustaPorfolioMenu == null)
+                 {
+                     frustaPorfolioMenu = createMenu(position); // current menu is frusta portfolio menu
+                 }
+                 currentMenu = frustaPorfolioMenu;
+                 break;
+             }
+             
+             case M.menus.PRISM_PORTFOLIO_MENU: // if prism portfolio menu is chosen
+             {
+                 if(prismPorfolioMenu == null)
+                 {
+                     prismPorfolioMenu = createMenu(position); // current menu is prism portfolio menu
+                 }
+                 currentMenu = prismPorfolioMenu;
+                 break;
+             }
+             
+             case M.menus.PYRAMIDS_PORTFOLIO_MENU: // if pyramids portfolio menu is chosen
+             {
+                 if(pyramidsPorfolioMenu == null)
+                 {
+                     pyramidsPorfolioMenu = createMenu(position); // current menu is pyramids portfolio menu
+                 }
+                 currentMenu = pyramidsPorfolioMenu;
+                 break;
+             }
+             
+             case M.menus.SPHERE_PORTFOLIO_MENU: // if spheres portfolio menu is chosen
+             {
+                 if(spheresPorfolioMenu == null)
+                 {
+                     spheresPorfolioMenu = createMenu(position); // current menu is spheres portfolio menu
+                 }
+                 currentMenu = spheresPorfolioMenu;
+                 break;
+             }
+             
+             case M.menus.WEDGES_PORTFOLIO_MENU: // if wedges portfolio menu is chosen
+             {
+                 if(wedgesPorfolioMenu == null)
+                 {
+                     wedgesPorfolioMenu = createMenu(position); // current menu is wedges portfolio menu
+                 }
+                 currentMenu = wedgesPorfolioMenu;
                  break;
              }
          }

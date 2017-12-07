@@ -54,6 +54,11 @@ public class WedgesMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
+             case M.menu_items.PORTFOLIO:
+             {
+                 InputUtils.chooseMenuItem(context, M.menus.WEDGES_PORTFOLIO_MENU);
+                 break;
+             }
              case M.menu_items.BACK:
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);

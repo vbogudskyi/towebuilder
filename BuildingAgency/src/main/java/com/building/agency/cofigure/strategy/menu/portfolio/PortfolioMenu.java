@@ -69,11 +69,9 @@ public abstract class PortfolioMenu extends Menu {
                    break;
                }
                case M.menu_items.EVOLUTION_TOWER: {
-                   System.out.println("Evolution Tower Parameters");
                    break;
                }
                case M.menu_items.WORLD_TRADE_CENTER: {
-                   System.out.println("One World Trade Center");
                    break;
                }
            }

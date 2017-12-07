@@ -57,6 +57,11 @@ public class PyramidsMenu extends Menu {
     private final MenuItemChosenListener menuItemChosenListener = (MenuItemModel item, int menuType) -> {
           switch(item.getItemValue())
           {
+              case M.menu_items.PORTFOLIO:
+              {
+                  InputUtils.chooseMenuItem(context, M.menus.PYRAMIDS_PORTFOLIO_MENU);
+                  break;
+              }
               case M.menu_items.BACK:
               {
                   InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);

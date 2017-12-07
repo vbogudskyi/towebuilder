@@ -7,6 +7,7 @@ package com.building.agency.base.figure3d.cupolae;
 
 import com.building.agency.base.Figure2d;
 import com.building.agency.base.figure3d.Cupolae;
+import com.building.agency.utils.M;
 
 /**
  * Declares a square cupolae
@@ -15,23 +16,28 @@ import com.building.agency.base.figure3d.Cupolae;
  */
 public class SquareCupolae extends Cupolae {
 
-    public SquareCupolae(int figure, int base_figure) {
-        super(figure, base_figure);
+    private Figure2d base = null; // square cupolae base
+    private double height = -1; // square cupolae height
+    
+    public SquareCupolae(Figure2d base, double height) {
+        super(M.figure_3d.SQUARE_CUPOLAE, M.figures_2d.POLYGON);
+        this.base = base; // square cupolae base is assigned here
+        this.height = height; // square cupolae height is assigned here
     }
 
     @Override
     public Figure2d getCupolaeBase() {
-        return null;
+        return base;
     }
 
     @Override
     public Figure2d getCupolaeUpperBase() {
-        return null;
+        return base;
     }
 
     @Override
     public double getHeight() {
-        return 0;
+        return height;
     }
     
 }

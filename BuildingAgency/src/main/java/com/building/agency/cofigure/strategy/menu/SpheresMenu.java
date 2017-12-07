@@ -60,6 +60,7 @@ public class SpheresMenu extends Menu {
              
              case M.menu_items.PORTFOLIO:
              {
+                 InputUtils.chooseMenuItem(context, M.menus.SPHERE_PORTFOLIO_MENU);
                  break;
              }
              

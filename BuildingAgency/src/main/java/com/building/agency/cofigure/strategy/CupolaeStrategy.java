@@ -8,6 +8,7 @@ package com.building.agency.cofigure.strategy;
 import com.building.agency.base.Figure2d;
 import com.building.agency.base.figure3d.Cupolae;
 import com.building.agency.base.figure3d.cupolae.DiagonalCupolae;
+import com.building.agency.base.figure3d.cupolae.SquareCupolae;
 import com.building.agency.base.figure3d.cupolae.TriangularCupolae;
 import com.building.agency.utils.M;
 
@@ -34,6 +35,13 @@ public class CupolaeStrategy {
             case M.figure_3d.DIAGONAL_CUPOLAE: // if diagonal cupolae is chosen
             {
                 cupolae = new DiagonalCupolae(base, height); // cupolae is created
+                cupolae.apply(); // data is applied
+                break;
+            }
+            
+            case M.figure_3d.SQUARE_CUPOLAE: // if square cupolae is chosen
+            {
+                cupolae = new SquareCupolae(base, height); // cupolae is created
                 cupolae.apply(); // data is applied
                 break;
             }
