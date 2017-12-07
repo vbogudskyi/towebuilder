@@ -86,7 +86,7 @@ public final class M {
        /**********************************************************************/
        
        public static final String RECTANGLE_HEIGHT = "Please, enter the height of rectangle: ";
-       public static final String RECTANGLE_WIDTH = "Please, enter the height of rectangle: ";
+       public static final String RECTANGLE_WIDTH = "Please, enter the width of rectangle: ";
        public static final String RECTAGLE_ERROR = "Please, re-enter the side of rectangle: ";
        /**********************************************************************/
 
@@ -107,7 +107,6 @@ public final class M {
        public static final String POLYGON_SIDES_COUNT_ERROR = "Please re-enter an amount of polygon sides: ";
        public static final String POLYGON_SIDE = "Please, enter a %d polygon side: ";
        public static final String POLYGON_SIDE_ERROR = "Please, re-enter a %d polygon side: ";
-
        
        /***********************************************************************/
        public static final String CUPOLAE_RADIUS = "Please, enter a cupolae radius: ";
@@ -202,6 +201,15 @@ public final class M {
        public static final int CUSTOMER_REQUEST = 3;
        public static final int MANAGER_ANSWER = 4;
        public static final int MANAGER_SPEECH = 5;
+   }
+   
+   public static final class constants
+   {
+       private constants(){}
+       
+       public static final double POLYGON_RADIUS = 20;
+
+               
    }
     
 }

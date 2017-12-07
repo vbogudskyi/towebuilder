@@ -6,6 +6,7 @@
 package com.building.agency.cofigure.strategy.menu;
 
 import com.building.agency.cofigure.app.ApplicationContext;
+import com.building.agency.cofigure.app.CompanyContext;
 import com.building.agency.cofigure.menu.Menu;
 import com.building.agency.cofigure.menu.MenuItemModel;
 import com.building.agency.cofigure.menu.callback.MenuItemChosenListener;
@@ -55,8 +56,44 @@ public class PyramidsMenu extends Menu {
      * A listeners, which fires, when menu item is chosen
      */
     private final MenuItemChosenListener menuItemChosenListener = (MenuItemModel item, int menuType) -> {
+          CompanyContext ctx = (CompanyContext)context;
           switch(item.getItemValue())
           {
+              case M.menu_items.TRIANGLE:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.TRIANGLE, M.figure_3d.PYRAMID);
+                 break;
+             }
+             
+             case M.menu_items.RECTANGLE:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE, M.figure_3d.PYRAMID);
+                 break;
+             }
+             
+             case M.menu_items.CIRCLE:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.CIRCLE, M.figure_3d.PYRAMID);
+                 break;
+             }
+             
+             case M.menu_items.ROMB:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.ROMB, M.figure_3d.PYRAMID);
+                 break;
+             }
+             
+             case M.menu_items.POLYGON:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON, M.figure_3d.PYRAMID);
+                 break;
+             }
+             
+             case M.menu_items.PARALLELOGRAMM:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.PARALLELOGRAMM, M.figure_3d.PYRAMID);
+                 break;
+             }
               case M.menu_items.PORTFOLIO:
               {
                   InputUtils.chooseMenuItem(context, M.menus.PYRAMIDS_PORTFOLIO_MENU);

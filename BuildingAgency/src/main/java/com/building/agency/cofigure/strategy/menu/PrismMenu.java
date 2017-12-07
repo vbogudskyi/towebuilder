@@ -60,9 +60,40 @@ public class PrismMenu extends Menu {
          {
              case M.menu_items.TRIANGLE:
              {   
-                 
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.TRIANGLE, M.figure_3d.PRISM);
                  break;
              }
+             
+             case M.menu_items.RECTANGLE:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE, M.figure_3d.PRISM);
+                 break;
+             }
+             
+             case M.menu_items.CIRCLE:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.CIRCLE, M.figure_3d.PRISM);
+                 break;
+             }
+             
+             case M.menu_items.ROMB:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.ROMB, M.figure_3d.PRISM);
+                 break;
+             }
+             
+             case M.menu_items.POLYGON:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON, M.figure_3d.PRISM);
+                 break;
+             }
+             
+             case M.menu_items.PARALLELOGRAMM:
+             {   
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.PARALLELOGRAMM, M.figure_3d.PRISM);
+                 break;
+             }
+             
              case M.menu_items.PORTFOLIO:
              {
                  InputUtils.chooseMenuItem(context, M.menus.PRISM_PORTFOLIO_MENU);

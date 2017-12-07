@@ -44,4 +44,20 @@ public class PolygonUtils extends ArrayUtils{
         }
         return sum;
     }
+    
+    /**
+     * Method detects if all data is valid
+     * @return 
+     */
+    public boolean isValid()
+    { 
+        for(int i = 0; i < this.getCapacity(); i++)
+        {
+            if(findData(i) <= 0){ // every value checks for being valid
+                return false; //if not valid
+            }
+        }
+        return true; // if valid
+    }
+    
 }

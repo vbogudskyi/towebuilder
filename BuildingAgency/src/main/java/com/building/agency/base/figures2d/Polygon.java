@@ -7,6 +7,7 @@ package com.building.agency.base.figures2d;
 
 import com.building.agency.base.Figure2d;
 import com.building.agency.utils.M;
+import com.building.agency.utils.array.PolygonUtils;
 
 /**
  * Declares a polygon
@@ -15,7 +16,7 @@ import com.building.agency.utils.M;
  */
 public class Polygon extends Figure2d {
 
-    private double[] sides; //Sides of a polygon
+    private PolygonUtils sides; //Sides of a polygon
     private double radius; // radius of internal circle inside a polygon
 
     /**
@@ -23,7 +24,7 @@ public class Polygon extends Figure2d {
      * @param radius - radius of internal circle of the polygon
      * @param sides - sides of the polygon
      */
-    public Polygon(double radius, double[] sides) {
+    public Polygon(double radius, PolygonUtils sides) {
         super(M.figures_2d.POLYGON);
         this.sides = sides;
         this.radius = radius;
@@ -44,7 +45,7 @@ public class Polygon extends Figure2d {
      * @param radius - radius of internal circle
      * @param sides - sides of polygon 
      */
-    public Polygon(int figure, double radius, double[] sides)
+    public Polygon(int figure, double radius, PolygonUtils sides)
     {
         super(figure);
         this.sides = sides;
@@ -59,11 +60,11 @@ public class Polygon extends Figure2d {
     }
 
     //Accessors and mutators
-    public double[] getSides() {
+    public PolygonUtils getSides() {
         return sides;
     }
 
-    public void setSides(double[] sides) {
+    public void setSides(PolygonUtils sides) {
         this.sides = sides;
     }
     
