@@ -73,4 +73,37 @@ public class InputUtils {
        }
     }
     
+    /**
+     * Gets a double value from console
+     * @param context - application context
+     * @param message - console message
+     * @param error_message - error console method
+     * @return - double value
+     */
+    public static final double getDoubleValue(ApplicationContext context, String message, String error_message)
+    {
+        PrintUtils.printMessage(message); // main message is printed
+        Scanner scanner = context.getConsoleScanner(); // console scanner is assigned
+        double value = 0; // current value is assigned
+        while(!scanner.hasNextDouble()) // if value is not double
+        {
+            PrintUtils.printMessage(error_message); // error message is printed
+            scanner.nextLine(); // skip current line
+        }
+        value = Double.parseDouble(scanner.nextLine()); // get entered double value
+        return value;
+    }
+    
+    /**
+     * Gets an integer value from a console
+     * @param context - application context
+     * @param message - console message
+     * @param error_message - error console message
+     * @return integer value
+     */
+    public static final int getIntValue(ApplicationContext context, String message, String error_message)
+    {
+        return (int)getDoubleValue(context, message, error_message); // truncate double to int
+    }    
+    
 }

@@ -39,6 +39,8 @@ public final class M {
        public static final int PRISM = 106;
        public static final int SPHERE = 107;
        public static final int WEDGE = 108;
+       public static final int DIAGONAL_CUPOLAE = 109;
+       public static final int TRANGULAR_CUPOLAE = 110;
    }
     
    public static final class errors
@@ -66,6 +68,53 @@ public final class M {
                + "which will be used for building a tower\"";
        public static final String MANAGER_SPEECH4 = "%s\"Well done. Starting building. Please wait...\"";
        public static final String CONSULTANT_SPEECH3 = "%s\"Sure\"";
+       /********************************************************************/
+       
+       public static final String FIRST_SIDE_OF_A_TRIANGLE = "Please, enter the first side of a triangle: ";
+       public static final String SECOND_SIDE_OF_A_TRIANGLE = "Please, enter the second side of a triangle: ";
+       public static final String THIRD_SIDE_OF_A_TRIANGLE = "Please, enter the third side of a triangle: ";
+       public static final String TRIANGLE_ERROR_MESSAGE = "Please re-enter a side of a tringle: ";
+       /********************************************************************/
+       
+       public static final String POLYGON_SIDES_COUNT_MESSAGE = "Please, enter an amount of polygon sides: ";
+       public static final String POLYGON_SIDES_ERROR_MESSAGE = "Please, re-enter an amount of polygon sides: ";
+       /*********************************************************************/
+       
+       public static final String CIRCLE_RADIUS_MESSAGE = "Please, enter a circle radius: ";
+       public static final String CIRCLE_ERROR_MESSAGE = "Please, re-enter a circle radius: ";
+       /**********************************************************************/
+       
+       public static final String RECTANGLE_HEIGHT = "Please, enter the height of rectangle: ";
+       public static final String RECTANGLE_WIDTH = "Please, enter the height of rectangle: ";
+       public static final String RECTAGLE_ERROR = "Please, re-enter the side of rectangle: ";
+       /**********************************************************************/
+
+       public static final String PARALLELOGRAMM_HEIGHT = "Please, enter the height of parallelogramm: ";
+       public static final String PARALLELOGRAMM_WIDTH = "Please, enter the height of paralleolgramm: ";
+       public static final String PARALLEOLGRAMM_ANGLE = "Please, enter the angle of paralleolgramm: ";
+       public static final String PARALLEOLGRAMM_ANGLE_ERROR = "Please, re-enter the angle of paralleolgramm: ";
+       public static final String PARALLELOGRAMM_ERROR = "Please, re-enter the side of parallelogramm: ";
+       /***********************************************************************/
+       
+       public static final String ROMB_WIDTH = "Please, enter the width of romb: ";
+       public static final String ROMB_ANGLE = "Please, enter the angle of romb: ";
+       public static final String ROMB_ANGLE_ERROR = "Please, re-enter the angle of romb: ";
+       public static final String ROMB_ERROR = "Please, re-enter the side of romb: ";
+       /***********************************************************************/
+       
+       public static final String POLYGON_SIDES_COUNT = "Please enter an amount of polygon sides: ";
+       public static final String POLYGON_SIDES_COUNT_ERROR = "Please re-enter an amount of polygon sides: ";
+       public static final String POLYGON_SIDE = "Please, enter a %d polygon side: ";
+       public static final String POLYGON_SIDE_ERROR = "Please, re-enter a %d polygon side: ";
+
+       
+       /***********************************************************************/
+       public static final String CUPOLAE_RADIUS = "Please, enter a cupolae radius: ";
+       public static final String CUPOLAE_ERROR_MESSAGE = "Please, re-enter a cupolae radius: ";
+       
+       /***********************************************************************/
+       public static final String FIGURE_3D_HEIGHT = "Please, enter a height of %s: ";
+       public static final String FIGURE_3D_HEIGHT_ERROR = "Please, re-enter a height of %s: ";
 
    }
    

@@ -13,7 +13,7 @@ import com.building.agency.base.Figure3d;
  * @version 1.0
  */
 public class Prismatoid extends Figure3d {
-
+     
     /**
      * Prismatoid default constructor
      * @param figure - type of prismatoid

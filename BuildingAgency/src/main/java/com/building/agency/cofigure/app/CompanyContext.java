@@ -5,6 +5,7 @@
  */
 package com.building.agency.cofigure.app;
 
+import com.building.agency.cofigure.strategy.CupolaeStrategy;
 import com.building.agency.cofigure.strategy.FigureStrategy;
 import com.building.agency.cofigure.strategy.MenuStrategy;
 import com.building.agency.cofigure.strategy.players.init.PlayerInit;
@@ -18,6 +19,7 @@ public abstract class CompanyContext extends ApplicationContext {
 
      private FigureStrategy figureStrategy = null; // Figures strategy reference is stored here
      private MenuStrategy menuStrategy = null; // Menus strategy reference is stored here
+     private CupolaeStrategy cupolaeStrategy = null; // cupolae strategy is stored here
      private PlayerInit init = null; // Player's initializer is stored here
      
      /**
@@ -28,11 +30,16 @@ public abstract class CompanyContext extends ApplicationContext {
          init = PlayerInit.getInstance(); // players container instance is got here
          figureStrategy = new FigureStrategy(this); // figure strategy instance is created here
          menuStrategy = new MenuStrategy(this); // menu strategy instance is created here
+         cupolaeStrategy = new CupolaeStrategy(); // cupolae strategy instance is created
      }
 
     // Accessors and mutators 
     public FigureStrategy getFigures() {
         return figureStrategy;
+    }
+
+    public CupolaeStrategy getCupolaeStrategy() {
+        return cupolaeStrategy;
     }
 
     public MenuStrategy getMenus() {
