@@ -29,11 +29,13 @@ public class AntiprismMenu extends Menu {
     /**
      * Default constructor of antiprism menu
      * @param context - application context
+     * @version 1.0
      */
     
     public AntiprismMenu(ApplicationContext context) {
         super(HEADER, M.menus.ANTIPRISM_MENU);
         this.context = context;
+        // menu items are added
         items = new ArrayList<>();
         items.add(new MenuItemModel(1, M.menu_items.POLYHEDRON));
         items.add(new MenuItemModel(2, M.menu_items.TILING));
@@ -44,8 +46,8 @@ public class AntiprismMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); // menu items are set
+        setOnItemChosenListener(menuItemChosenListener); // menu listener is set
     }
     
     /**
@@ -56,19 +58,19 @@ public class AntiprismMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
-             case M.menu_items.PORTFOLIO:
+             case M.menu_items.PORTFOLIO: // if portfolio is chosen
              {
-                 InputUtils.chooseMenuItem(context, M.menus.ANTIPRISM_PORTFOLIO_MENU);
+                 InputUtils.chooseMenuItem(context, M.menus.ANTIPRISM_PORTFOLIO_MENU); // show a portfolio
                  break;
              }
              
-             case M.menu_items.BACK:
+             case M.menu_items.BACK: // back to main menu
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                  break;
              }
              
-             case M.menu_items.QUIT:
+             case M.menu_items.QUIT: // leave an application
              {
                  System.exit(0);
                  break;   

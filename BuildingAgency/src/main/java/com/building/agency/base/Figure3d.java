@@ -24,7 +24,7 @@ public abstract class Figure3d {
      */
     public Figure3d(int figure, int base_figure)
     {
-        currentFigure = figure;
+        currentFigure = figure; // figure 3d is assigned here
         base = null;
     }
     /**

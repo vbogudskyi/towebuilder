@@ -33,6 +33,7 @@ public class PrismMenu extends Menu {
     public PrismMenu(ApplicationContext context) {
         super(HEADER, M.menus.PRISM_MENU);
         this.context = context;
+        // Menu elements are added
         items = new ArrayList<>();
         items.add(new MenuItemModel(1, M.menu_items.TRIANGLE));
         items.add(new MenuItemModel(2, M.menu_items.RECTANGLE));
@@ -47,8 +48,8 @@ public class PrismMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); // menu elements are set
+        setOnItemChosenListener(menuItemChosenListener); // menu listener is set
     }
     
      /**
@@ -58,54 +59,60 @@ public class PrismMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
-             case M.menu_items.TRIANGLE:
+             case M.menu_items.TRIANGLE:// If triangle is chosen
              {   
+                 //triangular prism is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.TRIANGLE, M.figure_3d.PRISM);
                  break;
              }
              
-             case M.menu_items.RECTANGLE:
+             case M.menu_items.RECTANGLE: // If rectangle is chosen
              {   
+                 //rectangular prism is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE, M.figure_3d.PRISM);
                  break;
              }
              
-             case M.menu_items.CIRCLE:
+             case M.menu_items.CIRCLE: // If circle is chosen
              {   
+                //cylinder is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.CIRCLE, M.figure_3d.PRISM);
                  break;
              }
              
-             case M.menu_items.ROMB:
+             case M.menu_items.ROMB: // If romb is chosen
              {   
+                 //romb prism is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.ROMB, M.figure_3d.PRISM);
                  break;
              }
              
-             case M.menu_items.POLYGON:
+             case M.menu_items.POLYGON: // If polygon is chosen
              {   
+                 //polygon prism is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON, M.figure_3d.PRISM);
                  break;
              }
              
-             case M.menu_items.PARALLELOGRAMM:
+             case M.menu_items.PARALLELOGRAMM: // If parallelogramm is chosen
              {   
+                 //parallelogramm prism is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.PARALLELOGRAMM, M.figure_3d.PRISM);
                  break;
              }
              
-             case M.menu_items.PORTFOLIO:
+             case M.menu_items.PORTFOLIO: // if portfolio is chosen
              {
-                 InputUtils.chooseMenuItem(context, M.menus.PRISM_PORTFOLIO_MENU);
+                 InputUtils.chooseMenuItem(context, M.menus.PRISM_PORTFOLIO_MENU); // show portfolio
                  break;
              }
-             case M.menu_items.BACK:
+             case M.menu_items.BACK: // Back to main menu
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                  break;
              }
              
-             case M.menu_items.QUIT:
+             case M.menu_items.QUIT: // leave the application
              {
                  System.exit(0);
                  break;   

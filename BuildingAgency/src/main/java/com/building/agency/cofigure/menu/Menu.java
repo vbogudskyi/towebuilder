@@ -41,9 +41,9 @@ public abstract class Menu {
      */
     public Menu(String header, int menuType, List<MenuItemModel> items)
     {
-        this.header = header;
-        this.menuType = menuType;
-        this.items = items;
+        this.header = header; // menu header is assugned here
+        this.menuType = menuType; // menu type is assigned here
+        this.items = items; // menu items are assigned here
     }
     
     /**
@@ -62,7 +62,7 @@ public abstract class Menu {
      */
     public Menu addMenuItem(MenuItemModel item)
     {
-        items.add(item);
+        items.add(item); // new item is added
         return this;
     }
     
@@ -71,7 +71,7 @@ public abstract class Menu {
       * @param onItemChosenListener - listener
       */
     public void setOnItemChosenListener(MenuItemChosenListener onItemChosenListener) {
-        this.onItemChosenListener = onItemChosenListener;
+        this.onItemChosenListener = onItemChosenListener; // menu listener is set
     }
     
     /**
@@ -82,21 +82,26 @@ public abstract class Menu {
     {
         if(onItemChosenListener != null)
         {
-            MenuItemModel item = getMenuItembyUserChoice(choice);
-            onItemChosenListener.onItemChosen(item, menuType);
+            MenuItemModel item = getMenuItembyUserChoice(choice); // when a user made a choice 
+            onItemChosenListener.onItemChosen(item, menuType); // fire a listener
         }
     }
     
+    /**
+     * Method detects a menu item by user choice
+     * @param choice
+     * @return menu item
+     */
     private MenuItemModel getMenuItembyUserChoice(String choice)
     {
-        MenuItemModel searchingMenuItem = null;
+        MenuItemModel searchingMenuItem = null; // required menu item is tired here
         if(items != null)
         {
             for(MenuItemModel item : items)
             {
-                if(String.valueOf(item.getItemPosition()).equalsIgnoreCase(choice))
+                if(String.valueOf(item.getItemPosition()).equalsIgnoreCase(choice)) // search for required menu item
                 {
-                    searchingMenuItem = item;
+                    searchingMenuItem = item; // menu item is found
                     break;
                 }
             }
@@ -110,11 +115,11 @@ public abstract class Menu {
      */
     public List<String> getItemsPositions()
     {
-        List<String> positions = new ArrayList<>();
+        List<String> positions = new ArrayList<>(); // list of all menu items positions
         if(items != null)
         {
             items.forEach((item) -> {
-                positions.add(item.getItemPosition()+"");
+                positions.add(item.getItemPosition()+""); // store a position of menu item
             });
         }
         return positions;

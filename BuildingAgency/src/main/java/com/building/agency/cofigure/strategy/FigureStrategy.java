@@ -7,8 +7,10 @@ package com.building.agency.cofigure.strategy;
 
 import com.building.agency.base.Figure2d;
 import com.building.agency.base.Figure3d;
+import com.building.agency.base.figure3d.Frusta;
 import com.building.agency.base.figure3d.Prism;
 import com.building.agency.base.figure3d.Pyramid;
+import com.building.agency.base.figure3d.Wedge;
 import com.building.agency.base.figures2d.Circle;
 import com.building.agency.base.figures2d.Parallelogramm;
 import com.building.agency.base.figures2d.Polygon;
@@ -105,7 +107,7 @@ public class FigureStrategy {
                 for(int i = 0; i<sidesCount; i++){
                     String message = String.format(M.dialogs.POLYGON_SIDE, i+1); 
                     // the length of i-side of the polygon is set
-                    side = InputUtils.getDoubleValue(context, message, M.dialogs.POLYGON_SIDES_COUNT_ERROR);
+                    side = InputUtils.getDoubleValue(context, message, M.dialogs.POLYGON_SIDE_ERROR);
                     utils = new PolygonUtils(sidesCount); // utils to work with polygon sides 
                     utils.addData(side); // add a polygon side
                 }
@@ -130,12 +132,12 @@ public class FigureStrategy {
         double height = 0; // the height of 3d figure is stored here
         switch(figure)
         {
-            case M.figure_3d.CUPOLAE: // if some kind of cupolae is chosen
+            case M.figure_3d.DIAGONAL_CUPOLAE: // if some kind of cupolae is chosen
             {
                 height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "cupolae"), 
                     String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "cupolae")); // cupolae height is calculated here
                 
-                newFigure = ctx.getCupolaeStrategy().buildCupolae(M.figure_3d.DIAGONAL_CUPOLAE, 
+                newFigure = ctx.getCupolaeStrategy().buildCupolae(figure, 
                         base_figure, height); // cupolae is created
                 break;
             }
@@ -144,7 +146,15 @@ public class FigureStrategy {
             {
                 height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "prism") , 
                     String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "prism")); // prism height is calculated here
-                newFigure = new Prism(base_figure, height);
+                newFigure = new Prism(base_figure, height); // prism is created
+                break;
+            }
+            
+            case M.figure_3d.WEDGE:
+            {
+                height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "wedge") , 
+                    String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "wedge")); // prism height is calculated here
+                newFigure = new Wedge(base_figure, null, height); // wedge is created
                 break;
             }
             
@@ -152,7 +162,7 @@ public class FigureStrategy {
             {
                 height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "pyramid") , 
                     String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "pyramid")); // prism height is calculated here
-                newFigure = new Pyramid(base_figure, height);
+                newFigure = new Pyramid(base_figure, height); // pyramod is created
                 break;
             }
         }
@@ -165,24 +175,39 @@ public class FigureStrategy {
      * @param base - 2D figure, a base of 3D figure
      * @param upper - 2D figure, an upper base of 3D figure
      * @param figure - 3D figure type
-     * @param sub_figure - 3D sub figure
      * @return 3D figure
      */
-    public Figure3d buildFigure3D(int base, int upper, int figure, int sub_figure)
+    public Figure3d buildFigure3D(int base, int upper, int figure)
     {
         CompanyContext ctx = (CompanyContext)context; // application context is explicitly casted into CompanyContext
         Figure3d newFigure = null; // 3d figure is stored here
+        Figure2d base_figure = buildFigure2D(base); // 3d figure base is stored here
+        Figure2d upper_base = buildFigure2D(upper); // 3d figure upper base is stored here
         switch(figure)
         {
-            case M.figure_3d.CUPOLAE: // if some kind of cupolae is chosen
+            case M.figure_3d.TRANGULAR_CUPOLAE: // if some kind of cupolae is chosen
             {
-                Figure2d base_figure = buildFigure2D(base); // cupolae base is stored here
-                Figure2d upper_base = buildFigure2D(upper); // cupolae upper base is stored here
                 double height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "cupolae"), 
                     String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "cupolae")); // cupolae height is stored here
                 
-                newFigure = ctx.getCupolaeStrategy().buildCupolae(sub_figure, 
+                newFigure = ctx.getCupolaeStrategy().buildCupolae(figure, 
                         base_figure, upper_base, height); // cupolae is created
+                break;
+            }
+            
+            case M.figure_3d.FRUSTA:
+            {
+                double height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "frusta"), 
+                    String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "frusta")); // frusta height is stored here
+                newFigure = new Frusta(upper_base, upper_base, height); // frusta is created
+                break;
+            }
+            
+            case M.figure_3d.WEDGE:
+            {
+                double height = InputUtils.getDoubleValue(context, String.format(M.dialogs.FIGURE_3D_HEIGHT, "wedge"), 
+                    String.format(M.dialogs.FIGURE_3D_HEIGHT_ERROR, "wedge")); // wedge height is stored here
+                newFigure = new Wedge(upper_base, upper_base, height); // wedge is created
                 break;
             }
         }

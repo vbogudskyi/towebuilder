@@ -36,6 +36,7 @@ public class FrustaMenu extends Menu {
     public FrustaMenu(ApplicationContext context) {
         super(HEADER, M.menus.FRUSTA_MENU);
         this.context = context;
+        // menu items are added
         items = new ArrayList<>();
         items.add(new MenuItemModel(1, M.menu_items.TRIANGLE));
         items.add(new MenuItemModel(2, M.menu_items.RECTANGLE));
@@ -50,8 +51,8 @@ public class FrustaMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); // menu items are set
+        setOnItemChosenListener(menuItemChosenListener); // menu listener is set
     }
     
      /**
@@ -61,18 +62,66 @@ public class FrustaMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
-             case M.menu_items.PORTFOLIO:
-             {
-                 InputUtils.chooseMenuItem(context, M.menus.FRUSTA_PORTFOLIO_MENU);
+             case M.menu_items.TRIANGLE: // if triangle chosen
+             {   
+                 // triangular frustum is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.TRIANGLE,
+                         M.figures_2d.TRIANGLE, M.figure_3d.FRUSTA);
                  break;
              }
-             case M.menu_items.BACK:
+             
+             case M.menu_items.RECTANGLE: // if rectangle chosen
+             {   
+                 // rectangular frustum is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE,
+                         M.figures_2d.RECTANGLE, M.figure_3d.FRUSTA);
+                 break;
+             }
+             
+             case M.menu_items.CIRCLE: // if circle chosen
+             {   
+                 // circular frustum is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.CIRCLE, 
+                         M.figures_2d.CIRCLE, M.figure_3d.FRUSTA);
+                 break;
+             }
+             
+             case M.menu_items.ROMB: // if romb chosen
+             {   
+                 // romb frustum is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.ROMB,
+                         M.figures_2d.ROMB, M.figure_3d.FRUSTA);
+                 break;
+             }
+             
+             case M.menu_items.POLYGON: // if polygon chosen
+             {   
+                 // polygon frustum is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON,
+                         M.figures_2d.POLYGON, M.figure_3d.FRUSTA);
+                 break;
+             }
+             
+             case M.menu_items.PARALLELOGRAMM: // if parallelogramm chosen
+             {   
+                 // parallelogramm frustum is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.PARALLELOGRAMM, 
+                         M.figures_2d.PARALLELOGRAMM, M.figure_3d.FRUSTA);
+                 break;
+             }
+             
+             case M.menu_items.PORTFOLIO: // if portfolio is chosen
+             {
+                 InputUtils.chooseMenuItem(context, M.menus.FRUSTA_PORTFOLIO_MENU); // show a portfolio
+                 break;
+             }
+             case M.menu_items.BACK: // back to main menu
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                  break;
              }
              
-             case M.menu_items.QUIT:
+             case M.menu_items.QUIT: // leave an application
              {
                  System.exit(0);
                  break;   

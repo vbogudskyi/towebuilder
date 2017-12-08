@@ -34,6 +34,7 @@ public class PyramidsMenu extends Menu {
     public PyramidsMenu(ApplicationContext context) {
         super(HEADER, M.menus.PYRAMIDS_MENU);
         this.context = context;
+        // menu items are added
         items = new ArrayList<>();
         items.add(new MenuItemModel(1, M.menu_items.TRIANGLE));
         items.add(new MenuItemModel(2, M.menu_items.RECTANGLE));
@@ -48,8 +49,8 @@ public class PyramidsMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); // menu items are set
+        setOnItemChosenListener(menuItemChosenListener); // menu listener is set
     }
     
     /**
@@ -59,53 +60,59 @@ public class PyramidsMenu extends Menu {
           CompanyContext ctx = (CompanyContext)context;
           switch(item.getItemValue())
           {
-              case M.menu_items.TRIANGLE:
+              case M.menu_items.TRIANGLE: // if triangle is chosen
              {   
+                  // triangular pyramid is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.TRIANGLE, M.figure_3d.PYRAMID);
                  break;
              }
              
-             case M.menu_items.RECTANGLE:
+             case M.menu_items.RECTANGLE: // if rectangle is chosen
              {   
+                 // rectangular pyramid is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE, M.figure_3d.PYRAMID);
                  break;
              }
              
-             case M.menu_items.CIRCLE:
+             case M.menu_items.CIRCLE: // if circle is chosen
              {   
+                 // conus is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.CIRCLE, M.figure_3d.PYRAMID);
                  break;
              }
              
-             case M.menu_items.ROMB:
+             case M.menu_items.ROMB: // if romb is chosen
              {   
+                 // romb pyramid is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.ROMB, M.figure_3d.PYRAMID);
                  break;
              }
              
-             case M.menu_items.POLYGON:
+             case M.menu_items.POLYGON: // if polygon is chosen
              {   
+                 // polygon pyramid is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON, M.figure_3d.PYRAMID);
                  break;
              }
              
-             case M.menu_items.PARALLELOGRAMM:
+             case M.menu_items.PARALLELOGRAMM: // if polygon is chosen
              {   
+                 // parallelogramm pyramid is created
                  ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.PARALLELOGRAMM, M.figure_3d.PYRAMID);
                  break;
              }
-              case M.menu_items.PORTFOLIO:
+              case M.menu_items.PORTFOLIO: //if portfolio is chosen
               {
-                  InputUtils.chooseMenuItem(context, M.menus.PYRAMIDS_PORTFOLIO_MENU);
+                  InputUtils.chooseMenuItem(context, M.menus.PYRAMIDS_PORTFOLIO_MENU); // porfolio is shown
                   break;
               }
-              case M.menu_items.BACK:
+              case M.menu_items.BACK: // Back to main menu
               {
                   InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                   break;
               }
               
-              case M.menu_items.QUIT:
+              case M.menu_items.QUIT: // leave an application
               {
                   System.exit(0);
                   break;

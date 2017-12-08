@@ -34,6 +34,7 @@ public class WedgesMenu extends Menu {
         super(HEADER, M.menus.WEDGES_MENU);
         this.context = context;
         items = new ArrayList<>();
+        // Menu items are added here
         items.add(new MenuItemModel(1, M.menu_items.PARALLEL_TRIANGLE));
         items.add(new MenuItemModel(2, M.menu_items.TETRAHEDRON));
         items.add(new MenuItemModel(7, M.menu_items.PORTFOLIO));
@@ -43,8 +44,8 @@ public class WedgesMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); // menu items are set
+        setOnItemChosenListener(menuItemChosenListener); // menu listener is set
     }
     
      /**
@@ -54,18 +55,32 @@ public class WedgesMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
-             case M.menu_items.PORTFOLIO:
+             case M.menu_items.PARALLEL_TRIANGLE: // if paallel triangle is chosen
              {
-                 InputUtils.chooseMenuItem(context, M.menus.WEDGES_PORTFOLIO_MENU);
+                 // parallel triangle is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE, M.figure_3d.WEDGE);
                  break;
              }
-             case M.menu_items.BACK:
+             
+             case M.menu_items.TETRAHEDRON: // if tetrahedron is chosen
+             {
+                 // tetrahedron is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE,
+                         M.figures_2d.TRIANGLE, M.figure_3d.WEDGE);
+                 break;
+             }
+             case M.menu_items.PORTFOLIO: // if portfolio is chosen
+             {
+                 InputUtils.chooseMenuItem(context, M.menus.WEDGES_PORTFOLIO_MENU); // portfolio is shown
+                 break;
+             }
+             case M.menu_items.BACK: // Back to main menu
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                  break;
              }
              
-             case M.menu_items.QUIT:
+             case M.menu_items.QUIT: // quit an application
              {
                  System.exit(0);
                  break;   
