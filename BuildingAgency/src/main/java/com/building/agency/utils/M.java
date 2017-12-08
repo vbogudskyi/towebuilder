@@ -91,9 +91,9 @@ public final class M {
        /**********************************************************************/
 
        public static final String PARALLELOGRAMM_HEIGHT = "Please, enter the height of parallelogramm: ";
-       public static final String PARALLELOGRAMM_WIDTH = "Please, enter the height of paralleolgramm: ";
-       public static final String PARALLEOLGRAMM_ANGLE = "Please, enter the angle of paralleolgramm: ";
-       public static final String PARALLEOLGRAMM_ANGLE_ERROR = "Please, re-enter the angle of paralleolgramm: ";
+       public static final String PARALLELOGRAMM_WIDTH = "Please, enter the width of parallelogramm: ";
+       public static final String PARALLEOLGRAMM_ANGLE = "Please, enter the angle of parallelogramm: ";
+       public static final String PARALLEOLGRAMM_ANGLE_ERROR = "Please, re-enter the angle of parallelogramm: ";
        public static final String PARALLELOGRAMM_ERROR = "Please, re-enter the side of parallelogramm: ";
        /***********************************************************************/
        
@@ -135,7 +135,7 @@ public final class M {
        public static final String FRUSTA = "Frusta";
        public static final String CUPOLAE = "Cupolae";
        public static final String WEDGE = "Wedge";
-       public static final String ANTIPRISM = "Antiprism";
+       public static final String ANTIPRISM = "Antiprism*";
        public static final String QUIT = "Quit";
        public static final String BACK = "Back";
        public static final String PORTFOLIO = "Portfolio";

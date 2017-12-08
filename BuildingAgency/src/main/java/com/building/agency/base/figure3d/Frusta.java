@@ -5,6 +5,9 @@
  */
 package com.building.agency.base.figure3d;
 
+import com.building.agency.base.Figure2d;
+import com.building.agency.utils.M;
+
 /**
  * Declares a frusta
  * @author vbohudskyi
@@ -12,13 +15,21 @@ package com.building.agency.base.figure3d;
  */
 public class Frusta extends Prismatoid {
     
+    private Figure2d base = null; // base figure of frusta
+    private Figure2d upper = null; // upper figure of frusta
+    private double height = 0; // height of frusta
+    
     /**
      * Frusta default constructor
-     * @param figure - type of frusta
-     * @param base_figure - base of frusta
+     * @param base - base figure of frusta
+     * @param upper - upper base of frusta
+     * @param height - height of frusta
      */
-    public Frusta(int figure, int base_figure) {
-        super(figure, base_figure);
+    public Frusta(Figure2d base, Figure2d upper, double height) {
+        super(M.figure_3d.FRUSTA, base.getCurrentFigure());
+        this.upper = upper; // upper base of frusta is assigned here
+        this.base = base; // base of frusta is assigned here
+        this.height = height; // height of frusta is assigned here
     }
     
 }

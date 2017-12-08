@@ -34,6 +34,7 @@ public class SpheresMenu extends Menu {
         super(HEADER, M.menus.SPHERE_MENU);
         this.context = context;
         items = new ArrayList<>();
+        // menu items are added
         items.add(new MenuItemModel(3, M.menu_items.CIRCLE));
         items.add(new MenuItemModel(7, M.menu_items.PORTFOLIO));
         items.add(new MenuItemModel(9, M.menu_items.BACK));
@@ -42,8 +43,8 @@ public class SpheresMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); // menu items are set
+        setOnItemChosenListener(menuItemChosenListener); // menu listener is set
     }
     
      /**
@@ -53,24 +54,26 @@ public class SpheresMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
-             case M.menu_items.CIRCLE:
+             case M.menu_items.CIRCLE: // if circle is chosen
              {
+                 // a sphere is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.CIRCLE, M.figure_3d.SPHERE);
                  break;
              }
              
-             case M.menu_items.PORTFOLIO:
+             case M.menu_items.PORTFOLIO: // if portfolio is chosen
              {
-                 InputUtils.chooseMenuItem(context, M.menus.SPHERE_PORTFOLIO_MENU);
+                 InputUtils.chooseMenuItem(context, M.menus.SPHERE_PORTFOLIO_MENU); // portfolio is shown
                  break;
              }
              
-             case M.menu_items.BACK:
+             case M.menu_items.BACK: // Back to main menu
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                  break;
              }
              
-             case M.menu_items.QUIT:
+             case M.menu_items.QUIT: // leave an application
              {
                 System.exit(0);
                 break; 

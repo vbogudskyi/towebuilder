@@ -53,4 +53,17 @@ public class ContentProvider {
         CompanyContext ctx = (CompanyContext) context; // application context is explicitly cast to CompanyContext
         return ctx.getFigures().buildFigure3D(base, figure); // 3d figure is created
     }
+    
+    /**
+     * Creates a 3d figure
+     * @param base - base of 3d figure
+     * @param upper - upper base of figure 3D
+     * @param figure - type of 3d figure
+     * @return 3d figure
+     */
+    public Figure3d getFigure3D(int base, int upper, int figure)
+    {
+        CompanyContext ctx = (CompanyContext) context; // application context is explicitly cast to CompanyContext
+        return ctx.getFigures().buildFigure3D(base, upper, figure); // 3d figure is created
+    }
 }

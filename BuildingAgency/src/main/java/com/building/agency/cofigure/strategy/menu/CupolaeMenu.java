@@ -34,6 +34,7 @@ public class CupolaeMenu extends Menu {
     public CupolaeMenu(ApplicationContext context) {
         super(HEADER, M.menus.CUPOLAE_MENU);
         this.context = context;
+        // menu items are added here
         items = new ArrayList<>();
         items.add(new MenuItemModel(1, M.menu_items.DIAGONAL));
         items.add(new MenuItemModel(2, M.menu_items.TRIANGULAR));
@@ -45,8 +46,8 @@ public class CupolaeMenu extends Menu {
 
     @Override
     public void populateMenu() {
-        setItems(items);
-        setOnItemChosenListener(menuItemChosenListener);
+        setItems(items); //menu items are set
+        setOnItemChosenListener(menuItemChosenListener); //menu listener is set
     }
     
     /**
@@ -56,18 +57,42 @@ public class CupolaeMenu extends Menu {
          CompanyContext ctx = (CompanyContext)context;
          switch(item.getItemValue())
          {
-             case M.menu_items.PORTFOLIO:
+             case M.menu_items.DIAGONAL: // if diagonal cupolae is chosen
              {
-                 InputUtils.chooseMenuItem(context, M.menus.CUPOLAE_PORTFOLIO_MENU);
+                 // diagonal cupolae is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.RECTANGLE,
+                         M.figure_3d.DIAGONAL_CUPOLAE);
                  break;
              }
-             case M.menu_items.BACK:
+             
+             case M.menu_items.TRIANGULAR: // if triangular cupolae is chosen
+             {
+                 // triangular cupolae is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON, 
+                         M.figures_2d.TRIANGLE, M.figure_3d.TRANGULAR_CUPOLAE);
+                 break;
+             }
+             
+             case M.menu_items.SQUARE: // if square cupolae is chosen
+             {
+                 // square cupolae is created
+                 ctx.getApplicationContentProvider().getFigure3D(M.figures_2d.POLYGON, 
+                         M.figures_2d.RECTANGLE, M.figure_3d.TRANGULAR_CUPOLAE);
+                 break;
+             }
+             
+             case M.menu_items.PORTFOLIO: // if portfolio is chosen
+             {
+                 InputUtils.chooseMenuItem(context, M.menus.CUPOLAE_PORTFOLIO_MENU); // show a portfolio
+                 break;
+             }
+             case M.menu_items.BACK: // back to main menu
              {
                  InputUtils.chooseMenuItem(context, M.menus.MAIN_MENU);
                  break;
              }
              
-             case M.menu_items.QUIT:
+             case M.menu_items.QUIT: // leave an application
              {
                  System.exit(0);
                  break;   

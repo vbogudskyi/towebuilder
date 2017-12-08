@@ -20,8 +20,8 @@ public final class MenuItemModel {
      */
     public MenuItemModel(int itemPosition, String itemValue)
     {
-        this.itemPosition = itemPosition;
-        this.itemValue = itemValue;
+        this.itemPosition = itemPosition; // item position is assigned here
+        this.itemValue = itemValue; // item value is assigned here
     }
     /**
      * Constructor of a copy
