@@ -20,7 +20,7 @@ public class Sphere extends Figure3d {
      * @param base_figure - sphere base
      */
     public Sphere(int figure, int base_figure) {
-        super(figure, base_figure);
+        super(figure);
     }
 
     @Override
