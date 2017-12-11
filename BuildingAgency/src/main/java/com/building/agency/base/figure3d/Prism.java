@@ -15,8 +15,6 @@ import com.building.agency.utils.M;
  */
 public class Prism extends Parallelepiped {
     
-    private Figure2d base = null; // a base figure of a prism
-    private double height = 0; // a height of a prism
     
     /**
      * Prism default constructor
@@ -25,8 +23,6 @@ public class Prism extends Parallelepiped {
      */
     public Prism(Figure2d base, double height) {
         super(M.figure_3d.PRISM, base.getCurrentFigure());
-        this.base = base;
-        this.height = height;
     }
     
 }

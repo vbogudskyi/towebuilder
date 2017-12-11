@@ -20,7 +20,7 @@ public class Prismatoid extends Figure3d {
      * @param base_figure - prismatoid base
      */
     public Prismatoid(int figure, int base_figure) {
-        super(figure, base_figure);
+        super(figure);
     }
 
     @Override

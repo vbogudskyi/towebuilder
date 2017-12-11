@@ -14,7 +14,11 @@ import com.building.agency.utils.M;
  */
 public class Triangle extends Figure2d{
 
-    private double a, b ,c;
+    private double a;
+    private double b;
+    private double c;
+
+
     
     /**
      * Default triangle constructor

@@ -9,7 +9,11 @@ import com.building.agency.base.Figure2d;
 import com.building.agency.base.Figure3d;
 import com.building.agency.cofigure.app.ApplicationContext;
 import com.building.agency.cofigure.app.CompanyContext;
-import com.building.agency.cofigure.io.FileIO;
+import com.building.agency.cofigure.io.model.PorfolioSerializer;
+import com.building.agency.cofigure.io.model.PortfolioModel;
+import com.google.gson.stream.JsonReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Declares a content provider, which retrieves a data from different sources
@@ -18,7 +22,6 @@ import com.building.agency.cofigure.io.FileIO;
  */
 public class ContentProvider {
     
-    private FileIO io = null; //file io utils are stored here
     private ApplicationContext context = null; // application context is tored here
     
     /**
@@ -65,5 +68,18 @@ public class ContentProvider {
     {
         CompanyContext ctx = (CompanyContext) context; // application context is explicitly cast to CompanyContext
         return ctx.getFigures().buildFigure3D(base, upper, figure); // 3d figure is created
+    }
+    
+    /**
+     * 
+     * @param json_file - json file name
+     * @return
+     * @throws IOException 
+     */
+    public PortfolioModel getFiguresPorfolio(String json_file) throws IOException
+    {
+        JsonReader reader = new JsonReader(new FileReader(json_file));
+        PorfolioSerializer serializer = context.getGson().fromJson(reader, PorfolioSerializer.class);
+        return serializer.getProtfolio();
     }
 }

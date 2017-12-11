@@ -13,19 +13,16 @@ package com.building.agency.base;
 public abstract class Figure3d {
     
     private double scale = -1; //Surface area of 3D figure is stored here
-    private Figure2d base = null; //Base 2D figure of 3D figure is stored here
     private double volume = -1; // Volume of 3D figure is stored here
     private int currentFigure = -1; //Current 3D figure type is stored here
     
     /**
      * 3D figure default constructor
      * @param figure - figure type
-     * @param base_figure  - base figure type
      */
-    public Figure3d(int figure, int base_figure)
+    public Figure3d(int figure)
     {
         currentFigure = figure; // figure 3d is assigned here
-        base = null;
     }
     /**
      * Method calculates a volume of 3D figure

@@ -215,7 +215,7 @@ public abstract class ArrayUtils {
          * moves the NaN value to the end of the Array
          * @version 1.0
          */
-        public void drop() {
+        private void drop() {
         
             int items = 0;
             //shift all null elements to the end
