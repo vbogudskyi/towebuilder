@@ -10,7 +10,7 @@ package com.building.agency.utils.array;
  * @author nnastas
  * @version 1.0
  */
-public class PolygonUtils extends ArrayUtils{
+public class PolygonUtils extends ArrayUtils<Double>{
 
     /**
      * Declare the default constructor for PolygonUtils
@@ -18,17 +18,15 @@ public class PolygonUtils extends ArrayUtils{
      * @version 1.0
      */
     public PolygonUtils(int capacity) {
-        super(capacity);
+        super(Double.class, capacity);
     }
 
     @Override
-    public void onSuccess(double data) {
-       
+    public void onSuccess(Double data) {
     }
 
     @Override
-    public void onFailure(double data) {
-        
+    public void onFailure(Double data) {
     }
     
     /**
