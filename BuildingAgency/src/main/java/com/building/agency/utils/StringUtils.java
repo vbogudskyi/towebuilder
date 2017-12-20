@@ -5,6 +5,9 @@
  */
 package com.building.agency.utils;
 
+import java.io.File;
+import java.net.URL;
+
 /**
  * Declares string utilities
  * @author vbohudskyi
@@ -19,5 +22,19 @@ public final class StringUtils {
     public static boolean isNullOrEmpty(String s)
     {
         return (s == null)||(s.isEmpty());
-    }  
+    }
+    
+    /**
+     * 
+     * @param pkg
+     * @param filename
+     * @return 
+     */
+    public static final File getFileAbsolutePath(String pkg, String filename)
+    {
+        URL root = Thread.currentThread().getContextClassLoader().getResource(pkg.replace(".", "/"));
+        String fullPath = root.getFile()+File.separator+filename;
+        File seachFile = new File(fullPath);
+        return seachFile;
+    }
 }

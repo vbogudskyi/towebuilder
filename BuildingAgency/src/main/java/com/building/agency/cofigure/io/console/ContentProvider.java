@@ -11,10 +11,11 @@ import com.building.agency.cofigure.app.ApplicationContext;
 import com.building.agency.cofigure.app.CompanyContext;
 import com.building.agency.cofigure.io.model.PorfolioSerializer;
 import com.building.agency.cofigure.io.model.PortfolioModel;
+import com.building.agency.utils.StringUtils;
 import com.google.gson.stream.JsonReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 /**
  * Declares a content provider, which retrieves a data from different sources
  * @author vbohudskyi
@@ -72,13 +73,13 @@ public class ContentProvider {
     
     /**
      * 
-     * @param json_file - json file name
      * @return
      * @throws IOException 
      */
-    public PortfolioModel getFiguresPorfolio(String json_file) throws IOException
+    public PortfolioModel getFiguresPorfolio() throws IOException
     {
-        JsonReader reader = new JsonReader(new FileReader(json_file));
+        File json = new File("portfolio.json");
+        JsonReader reader = new JsonReader(new FileReader(json));
         PorfolioSerializer serializer = context.getGson().fromJson(reader, PorfolioSerializer.class);
         return serializer.getProtfolio();
     }
