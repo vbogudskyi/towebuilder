@@ -5,7 +5,10 @@
  */
 package com.building.agency.utils.array;
 
+<<<<<<< HEAD
 import java.lang.reflect.Array;
+=======
+>>>>>>> f5b9d7ef0fde7ac51112975af0d0c81f25b65ae2
 import java.util.Comparator;
 
 
@@ -18,7 +21,10 @@ import java.util.Comparator;
 public class ModelUtils<M> {
     
     private ArrayUtils<M> data = null;
+<<<<<<< HEAD
     private Class<M> clazz = null;//
+=======
+>>>>>>> f5b9d7ef0fde7ac51112975af0d0c81f25b65ae2
    
     /**
      * Declare the Model Utils constructor
@@ -31,12 +37,20 @@ public class ModelUtils<M> {
            @Override
            public void onSuccess(M data) {
            }
+<<<<<<< HEAD
         
            @Override
            public void onFailure(M data) {
            }
        };
        this.clazz = clazz;
+=======
+
+           @Override
+           public void onFailure(M data) {
+           }
+       };      
+>>>>>>> f5b9d7ef0fde7ac51112975af0d0c81f25b65ae2
     }
     
     /**
@@ -189,6 +203,7 @@ public class ModelUtils<M> {
      * @return 
      */
     public  M[] extractElements(M[] data, int n, int start){
+<<<<<<< HEAD
         M[] temp = (M[]) Array.newInstance(clazz, n);
         if(start > -1 && n< this.data.getCapacity()){ //checking the boundaries
             for(int i = start; i < (start+n); i++){
@@ -209,6 +224,20 @@ public class ModelUtils<M> {
         return extractElements(data,end-start,start); 
             
     }
+=======
+        M[] temp = (M[]) new String[n];
+        if(start > -1 && n< this.data.getCapacity()){ //checking the boundaries
+            for(int i = start; i < (start+n); i++){
+            temp[i-start] = data[i];
+             }            
+        }
+        return temp;
+    }
+        
+        public ArrayUtils<M> getAllData() {
+            return data;
+        }
+>>>>>>> f5b9d7ef0fde7ac51112975af0d0c81f25b65ae2
        
 }
              

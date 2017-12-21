@@ -26,8 +26,11 @@ import com.building.agency.cofigure.strategy.menu.portfolio.PyramidsPortfolioMen
 import com.building.agency.cofigure.strategy.menu.portfolio.SpherePortfolioMenu;
 import com.building.agency.cofigure.strategy.menu.portfolio.WedgesPortfolioMenu;
 import com.building.agency.utils.M;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Declares different types of menu and maintains it
@@ -133,10 +136,13 @@ public class MenuStrategy {
                 menu = new FrustaPortfolioMenu(context); // frusta porfolio menu is created
                 break;
             }
-            case M.menus.PRISM_PORTFOLIO_MENU: // prism portfolio menu is chosen
-            {
+            case M.menus.PRISM_PORTFOLIO_MENU: { // prism portfolio menu is chosen
+            try {
                 menu = new PrismPortfolioMenu(context); // prism porfolio menu is created
-                break;
+            } catch (IOException ex) {
+                Logger.getLogger(MenuStrategy.class.getName()).log(Level.SEVERE, null, ex);
+            }
+               break;
             }
             case M.menus.PYRAMIDS_PORTFOLIO_MENU: // pyramids portfolio menu is chosen
             {

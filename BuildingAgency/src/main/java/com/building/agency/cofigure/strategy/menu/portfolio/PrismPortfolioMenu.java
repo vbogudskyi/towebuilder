@@ -6,8 +6,12 @@
 package com.building.agency.cofigure.strategy.menu.portfolio;
 
 import com.building.agency.cofigure.app.ApplicationContext;
+import com.building.agency.cofigure.app.CompanyContext;
+import com.building.agency.cofigure.io.model.PortfolioModel;
+import com.building.agency.cofigure.io.model.PrismModel;
 import com.building.agency.cofigure.menu.MenuItemModel;
 import com.building.agency.utils.M;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,13 +21,20 @@ import java.util.List;
  * @version 1.0
  */
 public class PrismPortfolioMenu extends PortfolioMenu{
+    
+    private PrismModel []prisms = null;
+    
     /**
      * Default constructor for Prism Portfolio Menu
      * @param context - application context
      * @version 1.0
+     * @throws java.io.IOException
      */
-    public PrismPortfolioMenu(ApplicationContext context) {
+    public PrismPortfolioMenu(ApplicationContext context) throws IOException {
         super(context, M.menus.PRISM_PORTFOLIO_MENU);
+        PortfolioModel porfolios = ((CompanyContext)context).getApplicationContentProvider().
+                getFiguresPorfolio();
+        prisms = porfolios.getPrisms();
     }
 
     @Override
