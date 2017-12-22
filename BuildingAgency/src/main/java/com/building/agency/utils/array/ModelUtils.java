@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.building.agency.utils.array;
-
+import java.lang.reflect.Array;
 import java.util.Comparator;
 
 
@@ -17,6 +17,7 @@ import java.util.Comparator;
 public class ModelUtils<M> {
     
     private ArrayUtils<M> data = null;
+    private Class<M> clazz = null;//
    
     /**
      * Declare the Model Utils constructor
@@ -28,12 +29,13 @@ public class ModelUtils<M> {
        data = new ArrayUtils<M>(clazz, capacity) {
            @Override
            public void onSuccess(M data) {
-           }
-
+           }        
            @Override
            public void onFailure(M data) {
            }
-       };      
+       };
+    
+        this.clazz = clazz;
     }
     
     /**
@@ -186,23 +188,28 @@ public class ModelUtils<M> {
      * @return 
      */
     public  M[] extractElements(M[] data, int n, int start){
-        M[] temp = (M[]) new String[n];
+        M[] temp = (M[]) Array.newInstance(clazz, n);
         if(start > -1 && n< this.data.getCapacity()){ //checking the boundaries
             for(int i = start; i < (start+n); i++){
             temp[i-start] = data[i];
-             }            
+            }            
         }
         return temp;
     }
-        
-        public ArrayUtils<M> getAllData() {
-            return data;
-        }
+    
+    /**
+     * Declare the get all data method
+     * @param data
+     * @param start
+     * @param end
+     * @return the entire Array data
+     */
+    public M[] extractElementsByIndexes(M[] data, int start, int end) {
+        return extractElements(data,end-start,start); 
+            
+    }
        
 }
-             
-    
-    
     
     //add element+; find element by index and value+; 
     //replace first+ element or all elements and replace by index+;

@@ -12,6 +12,7 @@ import com.building.agency.cofigure.menu.callback.MenuItemChosenListener;
 import com.building.agency.utils.InputUtils;
 import com.building.agency.utils.M;
 import com.building.agency.utils.PrintUtils;
+import com.building.agency.utils.array.ModelUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,7 +106,7 @@ public class MainMenu extends Menu {
             case M.menu_items.ANTIPRISM: // if antiprisms are chosen
             {
                 // all antiprisms are shown
-                InputUtils.chooseMenuItem(context, M.menus.ANTIPRISM_MENU);
+               InputUtils.chooseMenuItem(context, M.menus.ANTIPRISM_MENU); 
                 break;
             }
             
