@@ -9,11 +9,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Declares a prism json model
+ * Declares a pyramid json model
  * @author vbohudskyi
  * @version 1.0
  */
-public class PrismModel {
+public class PyramidModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
@@ -102,8 +102,7 @@ public class PrismModel {
 
         public void setHeight(double height) {
             this.height = height;
-        }
-        
-        
+        }   
     }
+    
 }

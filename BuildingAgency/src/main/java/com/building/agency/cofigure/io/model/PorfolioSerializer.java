@@ -15,7 +15,7 @@ import com.google.gson.annotations.SerializedName;
 public class PorfolioSerializer  {
     
     @Expose(serialize = false, deserialize = true)
-    @SerializedName("porfolio")
+    @SerializedName("portfolio")
     private PortfolioModel protfolio;
 
    

@@ -28,7 +28,7 @@ public class AntiprismModel {
     private Base base;
     
     @Expose(serialize = false, deserialize = true)
-    @SerializedName("height")
+    @SerializedName("Height")
     private double height;
 
     public String getName() {

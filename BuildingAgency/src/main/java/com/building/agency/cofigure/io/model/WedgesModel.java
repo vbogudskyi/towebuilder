@@ -9,11 +9,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Declares a prism json model
+ * Describes a wedges json model
  * @author vbohudskyi
  * @version 1.0
  */
-public class PrismModel {
+public class WedgesModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
@@ -73,13 +73,9 @@ public class PrismModel {
         private String type;
         
         @Expose(serialize = false, deserialize = true)
-        @SerializedName("width")
-        private double width;
+        @SerializedName("radius")
+        private double radius;
         
-        @Expose(serialize = false, deserialize = true)
-        @SerializedName("height")
-        private double height;
-
         public String getType() {
             return type;
         }
@@ -88,22 +84,12 @@ public class PrismModel {
             this.type = type;
         }
 
-        public double getWidth() {
-            return width;
+        public double getRadius() {
+            return radius;
         }
 
-        public void setWidth(double width) {
-            this.width = width;
+        public void setRadius(double radius) {
+            this.radius = radius;
         }
-
-        public double getHeight() {
-            return height;
-        }
-
-        public void setHeight(double height) {
-            this.height = height;
-        }
-        
-        
     }
 }

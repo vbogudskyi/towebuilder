@@ -9,11 +9,11 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Declares a prism json model
+ * Declares a cupolae json model
  * @author vbohudskyi
  * @version 1.0
  */
-public class PrismModel {
+public class CupolaeModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
@@ -68,7 +68,7 @@ public class PrismModel {
      */
     protected static class Base
     {
-        @Expose(serialize = false, deserialize = true)
+       @Expose(serialize = false, deserialize = true)
         @SerializedName("type")
         private String type;
         
@@ -79,6 +79,10 @@ public class PrismModel {
         @Expose(serialize = false, deserialize = true)
         @SerializedName("height")
         private double height;
+        
+        @Expose(serialize = false, deserialize = true)
+        @SerializedName("radius")
+        private double radius;
 
         public String getType() {
             return type;
@@ -102,8 +106,15 @@ public class PrismModel {
 
         public void setHeight(double height) {
             this.height = height;
+        } 
+
+        public double getRadius() {
+            return radius;
         }
-        
-        
+
+        public void setRadius(double radius) {
+            this.radius = radius;
+        }
     }
+    
 }
