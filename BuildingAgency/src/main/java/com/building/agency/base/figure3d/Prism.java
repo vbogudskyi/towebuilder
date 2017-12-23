@@ -14,8 +14,6 @@ import com.building.agency.utils.M;
  * @version 1.0
  */
 public class Prism extends Parallelepiped {
-    
-    
     /**
      * Prism default constructor
      * @param base - base figure of a prism

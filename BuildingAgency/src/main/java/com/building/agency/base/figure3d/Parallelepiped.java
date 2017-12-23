@@ -10,7 +10,7 @@ package com.building.agency.base.figure3d;
  * @author vbohudskyi
  * @version 1.0
  */
-public class Parallelepiped extends Prismatoid{
+public class Parallelepiped extends Prismatoid {
     
     /**
      * Parallelepiped default constructor
@@ -20,4 +20,6 @@ public class Parallelepiped extends Prismatoid{
     public Parallelepiped(int figure, int base_figure) {
         super(figure, base_figure);
     }
+    
+    
 }

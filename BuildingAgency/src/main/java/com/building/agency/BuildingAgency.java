@@ -20,7 +20,8 @@ import com.building.agency.utils.PrintUtils;
 public class BuildingAgency extends CompanyContext {
    
     /**
-     * Building agency default constructor. 
+     * Building agency default constructor.
+     * @version 1.0
      */
     public BuildingAgency(){
         // on application stopped callback is declared here

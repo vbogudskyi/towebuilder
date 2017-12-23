@@ -7,8 +7,7 @@ package com.building.agency.base.figures2d;
 
 import com.building.agency.base.Figure2d;
 import com.building.agency.utils.M;
-import com.building.agency.utils.array.PolygonUtils;
-
+import com.building.agency.utils.array.ModelUtils;
 /**
  * Declares a polygon
  * @author vbohudskyi
@@ -16,7 +15,7 @@ import com.building.agency.utils.array.PolygonUtils;
  */
 public class Polygon extends Figure2d {
 
-    private PolygonUtils sides; //Sides of a polygon
+    private ModelUtils<Double> sides; //Sides of a polygon
     private double radius; // radius of internal circle inside a polygon
 
     /**
@@ -24,7 +23,7 @@ public class Polygon extends Figure2d {
      * @param radius - radius of internal circle of the polygon
      * @param sides - sides of the polygon
      */
-    public Polygon(double radius, PolygonUtils sides) {
+    public Polygon(double radius, ModelUtils sides) {
         super(M.figures_2d.POLYGON);
         this.sides = sides;
         this.radius = radius;
@@ -45,7 +44,7 @@ public class Polygon extends Figure2d {
      * @param radius - radius of internal circle
      * @param sides - sides of polygon 
      */
-    public Polygon(int figure, double radius, PolygonUtils sides)
+    public Polygon(int figure, double radius, ModelUtils sides)
     {
         super(figure);
         this.sides = sides;
@@ -60,11 +59,11 @@ public class Polygon extends Figure2d {
     }
 
     //Accessors and mutators
-    public PolygonUtils getSides() {
+    public ModelUtils getSides() {
         return sides;
     }
 
-    public void setSides(PolygonUtils sides) {
+    public void setSides(ModelUtils sides) {
         this.sides = sides;
     }
     
@@ -76,5 +75,4 @@ public class Polygon extends Figure2d {
         if(radius>0)
         this.radius = radius;
     }
-
 }

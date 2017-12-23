@@ -6,8 +6,9 @@
 package com.building.agency.utils;
 
 /**
- *
- * @author colea
+ * Declares  math for 3d figures
+ * @author nnsatas
+ * @version 1.0
  */
 public class Math3dUtils {
     

@@ -12,7 +12,7 @@ import java.util.Comparator;
  * Declare the Model Utils Class
  * @author nnastas
  * @version 1.0
- * @param <M>
+ * @param <M> - a parameter type
  */
 public class ModelUtils<M> {
     
@@ -208,7 +208,6 @@ public class ModelUtils<M> {
         return extractElements(data,end-start,start); 
             
     }
-       
 }
     
     //add element+; find element by index and value+; 

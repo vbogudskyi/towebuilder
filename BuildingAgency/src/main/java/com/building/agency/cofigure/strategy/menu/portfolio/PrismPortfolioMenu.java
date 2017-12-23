@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class PrismPortfolioMenu extends PortfolioMenu{
     
-    private PrismModel []prisms = null;
+    private PrismModel []prisms = null; // parsed prisms are stored here
     
     /**
      * Default constructor for Prism Portfolio Menu
@@ -33,18 +33,21 @@ public class PrismPortfolioMenu extends PortfolioMenu{
     public PrismPortfolioMenu(ApplicationContext context) throws IOException {
         super(context, M.menus.PRISM_PORTFOLIO_MENU);
         PortfolioModel porfolios = ((CompanyContext)context).getApplicationContentProvider().
-                getFiguresPorfolio();
-        prisms = porfolios.getPrisms();
+                getFiguresPorfolio(); // portfolio figures a created here
+        prisms = porfolios.getPrisms(); // serialized prisms are stored here
     }
 
     @Override
     public List<MenuItemModel> retrieveItems() {
      List<MenuItemModel> items = new ArrayList<>();
-     
+     int i = 1;
+     for(PrismModel prism:prisms)
+     {
+         items.add(new MenuItemModel(i++, prism.getName()));
+     }
      items.add (new MenuItemModel(9, M.menu_items.BACK));
      items.add (new MenuItemModel(0, M.menu_items.QUIT));
      
         return items;   
     }
-    
 }

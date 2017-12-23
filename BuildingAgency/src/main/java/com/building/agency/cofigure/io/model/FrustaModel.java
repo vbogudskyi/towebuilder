@@ -17,20 +17,21 @@ public class FrustaModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
-    private String name;
+    private String name; // a frusta figure name is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("type")
-    private String type;
+    private String type; // a frusta figure type is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("base")
-    private Base base;
+    private Base base; // a frusta figure base is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("Height")
-    private double height;
+    private double height; // a frusta figure height is stored here
 
+    // Accessors and mutators
     public String getName() {
         return name;
     }
@@ -64,18 +65,21 @@ public class FrustaModel {
     }
     
     /**
-     * 
+     * Declares a frusta figure base
+     * @author vbohudskyi
+     * @version 1.0
      */
     protected static class Base
     {
         @Expose(serialize = false, deserialize = true)
         @SerializedName("type")
-        private String type;
+        private String type; // a base type is stored here
         
         @Expose(serialize = false, deserialize = true)
         @SerializedName("radius")
-        private double radius;
+        private double radius; // a base adius is store here
         
+        // Accessors and mutators
         public String getType() {
             return type;
         }

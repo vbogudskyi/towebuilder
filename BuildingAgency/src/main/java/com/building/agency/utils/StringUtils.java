@@ -26,9 +26,10 @@ public final class StringUtils {
     
     /**
      * 
-     * @param pkg
-     * @param filename
-     * @return 
+     * @param pkg - current package
+     * @param filename - current filename
+     * @return file
+     * @version 1.0
      */
     public static final File getFileAbsolutePath(String pkg, String filename)
     {

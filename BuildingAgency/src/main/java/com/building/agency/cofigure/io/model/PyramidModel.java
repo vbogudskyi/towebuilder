@@ -17,20 +17,21 @@ public class PyramidModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
-    private String name;
+    private String name; // pyramid figure name is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("type")
-    private String type;
+    private String type; // pyramid figure type is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("base")
-    private Base base;
+    private Base base; // pyramid figure base is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("Height")
-    private double height;
+    private double height; // pyramid figure height is stored here
 
+    // Accessors and mutators
     public String getName() {
         return name;
     }
@@ -64,22 +65,25 @@ public class PyramidModel {
     }
     
     /**
-     * 
+     *  Declares a pyramid base
+     *  @author  vbohudskyi
+     *  @version 1.0
      */
     protected static class Base
     {
         @Expose(serialize = false, deserialize = true)
         @SerializedName("type")
-        private String type;
+        private String type; // base type is stored here
         
         @Expose(serialize = false, deserialize = true)
         @SerializedName("width")
-        private double width;
+        private double width; // base width is stored here
         
         @Expose(serialize = false, deserialize = true)
         @SerializedName("height")
-        private double height;
+        private double height; // base height is stored here
 
+        // Accessors and mutators
         public String getType() {
             return type;
         }

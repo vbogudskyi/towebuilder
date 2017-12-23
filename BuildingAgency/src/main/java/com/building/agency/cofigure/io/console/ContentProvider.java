@@ -77,9 +77,9 @@ public class ContentProvider {
      */
     public PortfolioModel getFiguresPorfolio() throws IOException
     {
-        InputStream json = getClass().getClassLoader().getResourceAsStream("portfolio.json");
-        JsonReader reader = new JsonReader(new InputStreamReader(json));
-        PorfolioSerializer serializer = context.getGson().fromJson(reader, PorfolioSerializer.class);
-        return serializer.getProtfolio();
+        InputStream json = getClass().getClassLoader().getResourceAsStream("portfolio.json"); // json is loaded as a resource
+        JsonReader reader = new JsonReader(new InputStreamReader(json)); // json reader is created
+        PorfolioSerializer serializer = context.getGson().fromJson(reader, PorfolioSerializer.class); // json is serialized into models
+        return serializer.getProtfolio(); //portfolio models are retrieved
     }
 }

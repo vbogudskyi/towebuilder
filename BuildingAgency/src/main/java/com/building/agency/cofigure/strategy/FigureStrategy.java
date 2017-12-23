@@ -21,7 +21,7 @@ import com.building.agency.cofigure.app.ApplicationContext;
 import com.building.agency.cofigure.app.CompanyContext;
 import com.building.agency.utils.InputUtils;
 import com.building.agency.utils.M;
-import com.building.agency.utils.array.PolygonUtils;
+import com.building.agency.utils.array.ModelUtils;
 
 /**
  * Creates 2D and 3D figures. Needs refactoring and data validation
@@ -103,15 +103,15 @@ public class FigureStrategy {
                 int sidesCount = InputUtils.getIntValue(context, M.dialogs.POLYGON_SIDES_COUNT, 
                         M.dialogs.POLYGON_SIDES_COUNT_ERROR); // polygon sides amount is got
                 double side = 0; //the length of current polygon side
-                PolygonUtils utils = null; // utils to perform operations with a polygon are stored here
+                //PolygonUtils utils = null; // utils to perform operations with a polygon are stored here
+                ModelUtils<Double> polygonModel = new ModelUtils<>(Double.class, sidesCount); // utils to work with polygon sides
                 for(int i = 0; i<sidesCount; i++){
                     String message = String.format(M.dialogs.POLYGON_SIDE, i+1); 
                     // the length of i-side of the polygon is set
                     side = InputUtils.getDoubleValue(context, message, M.dialogs.POLYGON_SIDE_ERROR);
-                    utils = new PolygonUtils(sidesCount); // utils to work with polygon sides 
-                    utils.addData(side); // add a polygon side
+                    polygonModel.addData(side); // add a polygon side
                 }
-                newFigure = new Polygon(M.constants.POLYGON_RADIUS, utils);
+                newFigure = new Polygon(M.constants.POLYGON_RADIUS, polygonModel);
                 break;
             }
         }

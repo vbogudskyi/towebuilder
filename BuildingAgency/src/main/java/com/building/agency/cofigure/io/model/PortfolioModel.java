@@ -17,32 +17,33 @@ public class PortfolioModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("antiprism")
-    private AntiprismModel[] antiprism;
+    private AntiprismModel[] antiprism; // serialized antiprisms are stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("prism")
-    private PrismModel[] prism;
+    private PrismModel[] prism; // serialized prisms are stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("pyramid")
-    private PyramidModel[] pyramid;
+    private PyramidModel[] pyramid; // serialized pyramids are stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("cupolae")
-    private CupolaeModel[] cupolae;
+    private CupolaeModel[] cupolae; // serialized cupolaes are stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("frusta")
-    private FrustaModel[] frusta;
+    private FrustaModel[] frusta; // serialized frustas are stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("sphere")
-    private SpheresModel[] sphere;
+    private SpheresModel[] sphere; // serialized spheres are stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("wedges")
-    private WedgesModel[] wedge;
+    private WedgesModel[] wedge; // serialized wedges are stored here
 
+    // Accessors and mutators
     public AntiprismModel[] getAntiprisms() {
         return antiprism;
     }

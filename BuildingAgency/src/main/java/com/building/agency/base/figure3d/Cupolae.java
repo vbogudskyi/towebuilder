@@ -50,9 +50,9 @@ public abstract class Cupolae extends Prismatoid{
      */
     public void apply()
     {
-        base = getCupolaeBase();
-        upper_base = getCupolaeUpperBase();
-        height = getHeight();
+        base = getCupolaeBase(); // cupolae base is assigned here
+        upper_base = getCupolaeUpperBase(); // cupolae upper base is assigned here
+        height = getHeight(); // cupolae height is assigned here
     }
     
 }
