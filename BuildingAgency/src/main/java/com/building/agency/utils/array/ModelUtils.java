@@ -208,7 +208,8 @@ public class ModelUtils<M> {
         return extractElements(data,end-start,start); 
             
     }
-       
+    // add extract element in data storagge,and arrayutils
+    //create method add all data, check for capacity, in data sotrage and up. 
 }
     
     //add element+; find element by index and value+; 
