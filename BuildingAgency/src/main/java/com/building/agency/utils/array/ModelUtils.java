@@ -208,11 +208,10 @@ public class ModelUtils<M> {
         return extractElements(data,end-start,start); 
             
     }
-<<<<<<< HEAD
+
     // add extract element in data storagge,and arrayutils
     //create method add all data, check for capacity, in data sotrage and up. 
-=======
->>>>>>> 537b6c929294f01146491d71c994adc5d706f1b6
+
 }
     
     //add element+; find element by index and value+; 
