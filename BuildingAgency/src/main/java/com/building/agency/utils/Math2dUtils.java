@@ -22,6 +22,7 @@ public class Math2dUtils {
 
     /**
      * Private constructor - required by singleton pattern
+     * @version 1.0
      */
     private Math2dUtils() {
     }
@@ -96,7 +97,7 @@ public class Math2dUtils {
      * @return true is exists
      */
     public boolean isPolygonExist(Polygon polygon) {
-        return polygon.getRadius() > 0 && polygon.getSides().isValid(); 
+        return polygon.getRadius() > 0 && isValid(polygon); 
              // the condition of existencse of a polygon
     }
 
@@ -128,6 +129,29 @@ public class Math2dUtils {
         // error if circle does not exist
         return M.errors.CIRCLE_NOT_EXIST;
     }
+    
+    /**
+     * Method calculates a perimeter of a polygon
+     * @param polygon - current polygon
+     * @return perimeter
+     * @version 1.0
+     */
+    public double getPerimeter(Polygon polygon)
+    {
+        return 0;
+    }
+    
+    /**
+     * Method checks if a polygon is valid
+     * @param polygon - current polygon
+     * @return valid
+     * @version 1.0
+     */
+    public boolean isValid(Polygon polygon)
+    {
+        return true;
+    }
+
 
     /**
      * Method calculates a polygon area
@@ -136,7 +160,7 @@ public class Math2dUtils {
      */
     public double calculatePolygonScale(Polygon polygon) {
         if (isPolygonExist(polygon)) { // if a polygon exists            
-            double perimeter = polygon.getSides().sumData(); // a perimeter of a polygon stored here
+            double perimeter = getPerimeter(polygon); // a perimeter of a polygon stored here
             return perimeter * polygon.getRadius() / 2; // perimeter is calculated
         }
         // error if a polygon does not exist

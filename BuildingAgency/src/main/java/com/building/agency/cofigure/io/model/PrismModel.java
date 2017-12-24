@@ -17,20 +17,21 @@ public class PrismModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
-    private String name;
+    private String name; // a prism figure name is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("type")
-    private String type;
+    private String type; // a prism figure type is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("base")
-    private Base base;
+    private Base base; // a prism figure base is tored here
     
     @Expose(serialize = false, deserialize = true)
-    @SerializedName("height")
-    private double height;
+    @SerializedName("Height")
+    private double height; // a prism figure height is stored here
 
+    // Accessors and mutators
     public String getName() {
         return name;
     }
@@ -64,22 +65,25 @@ public class PrismModel {
     }
     
     /**
-     * 
+     * Declares a prism base
+     * @author vbohudskyi
+     * @version 1.0
      */
     protected static class Base
     {
         @Expose(serialize = false, deserialize = true)
         @SerializedName("type")
-        private String type;
+        private String type; // a base type is stored here
         
         @Expose(serialize = false, deserialize = true)
         @SerializedName("width")
-        private double width;
+        private double width; // a base width is stored here
         
         @Expose(serialize = false, deserialize = true)
         @SerializedName("height")
-        private double height;
+        private double height; // a base height is stored here
 
+        // Accessors and mutators
         public String getType() {
             return type;
         }
@@ -102,8 +106,6 @@ public class PrismModel {
 
         public void setHeight(double height) {
             this.height = height;
-        }
-        
-        
+        } 
     }
 }

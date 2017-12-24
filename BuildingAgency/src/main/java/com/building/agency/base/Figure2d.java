@@ -16,7 +16,7 @@ import com.building.agency.utils.Math2dUtils;
 public abstract class Figure2d {
   
    private int currentFigure = M.figures_2d.NONE; //Current figure type is stored here
-   private Math2dUtils utils = null; 
+   private Math2dUtils utils = null; // math utils are stored here
    
    /**
     * Figure 2D base constructor
@@ -24,8 +24,8 @@ public abstract class Figure2d {
     */
    public Figure2d(int figure)
    {
-       this.currentFigure = figure;
-       utils = Math2dUtils.getInstance();
+       this.currentFigure = figure; // current figure is assigned here
+       utils = Math2dUtils.getInstance(); // an instance of math utils is stored here
    }
    /**
     * Abstract method for calculating an area of 2D figure
@@ -35,7 +35,7 @@ public abstract class Figure2d {
    
    /**
     * Method retrieves math utilities
-    * @return 
+    * @return math utilities
     */
    protected Math2dUtils getMathUtils()
    {
@@ -54,7 +54,7 @@ public abstract class Figure2d {
    
    /**
     * Method returns current figure value
-    * @return 
+    * @return current figure
     */
    public int getCurrentFigure()
    {

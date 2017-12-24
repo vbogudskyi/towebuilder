@@ -9,29 +9,29 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Declares an antiprism json model
+ * Declares a pyramid json model
  * @author vbohudskyi
  * @version 1.0
  */
-public class AntiprismModel {
+public class PyramidModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
-    private String name; // antiprism figure name is stored here
+    private String name; // pyramid figure name is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("type")
-    private String type; // antiprism figure type is stored here
+    private String type; // pyramid figure type is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("base")
-    private Base base; // antiprism figure base is stored here
+    private Base base; // pyramid figure base is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("Height")
-    private double height; // antiprism figure height
+    private double height; // pyramid figure height is stored here
 
-    // Accesors and mutators
+    // Accessors and mutators
     public String getName() {
         return name;
     }
@@ -64,11 +64,10 @@ public class AntiprismModel {
         this.height = height;
     }
     
-    
     /**
-     * Declares an antiprism base
-     * @author vbohudskyi
-     * @version 1.0
+     *  Declares a pyramid base
+     *  @author  vbohudskyi
+     *  @version 1.0
      */
     protected static class Base
     {
@@ -79,7 +78,12 @@ public class AntiprismModel {
         @Expose(serialize = false, deserialize = true)
         @SerializedName("width")
         private double width; // base width is stored here
+        
+        @Expose(serialize = false, deserialize = true)
+        @SerializedName("height")
+        private double height; // base height is stored here
 
+        // Accessors and mutators
         public String getType() {
             return type;
         }
@@ -95,7 +99,14 @@ public class AntiprismModel {
         public void setWidth(double width) {
             this.width = width;
         }
-        
-        
+
+        public double getHeight() {
+            return height;
+        }
+
+        public void setHeight(double height) {
+            this.height = height;
+        }   
     }
+    
 }

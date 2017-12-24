@@ -12,7 +12,7 @@ import java.util.Comparator;
  * Declare the ArrayUtils Class
  * @author nnastas
  * @version 1.0
- * @param <A>
+ * @param <A> - a parameter type
  */
 public abstract class ArrayUtils<A> {
     
@@ -359,8 +359,5 @@ public abstract class ArrayUtils<A> {
         }
         
         
-    }
-    
-    
-    
+    }  
 }

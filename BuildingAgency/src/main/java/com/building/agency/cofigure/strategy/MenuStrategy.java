@@ -74,6 +74,7 @@ public class MenuStrategy {
     private Menu createMenu(int menu_type)
     {
         Menu menu = null; // current menu
+        try{
         switch(menu_type)
         {
             case M.menus.RESOURCE_MENU: // resources menu is chosen
@@ -137,11 +138,7 @@ public class MenuStrategy {
                 break;
             }
             case M.menus.PRISM_PORTFOLIO_MENU: { // prism portfolio menu is chosen
-            try {
                 menu = new PrismPortfolioMenu(context); // prism porfolio menu is created
-            } catch (IOException ex) {
-                Logger.getLogger(MenuStrategy.class.getName()).log(Level.SEVERE, null, ex);
-            }
                break;
             }
             case M.menus.PYRAMIDS_PORTFOLIO_MENU: // pyramids portfolio menu is chosen
@@ -160,6 +157,9 @@ public class MenuStrategy {
                 break;
             }
         }
+        } catch (IOException ex) {
+                Logger.getLogger(MenuStrategy.class.getName()).log(Level.SEVERE, null, ex);
+            }
         return menu;
     }
     

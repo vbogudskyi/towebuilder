@@ -9,29 +9,29 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Declares an antiprism json model
+ * Describes a wedges json model
  * @author vbohudskyi
  * @version 1.0
  */
-public class AntiprismModel {
+public class WedgesModel {
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("name")
-    private String name; // antiprism figure name is stored here
+    private String name; // a name of wedge figure is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("type")
-    private String type; // antiprism figure type is stored here
+    private String type; // a type of wedge figure is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("base")
-    private Base base; // antiprism figure base is stored here
+    private Base base; // a wedge base is stored here
     
     @Expose(serialize = false, deserialize = true)
     @SerializedName("Height")
-    private double height; // antiprism figure height
+    private double height; // a height of wedge is stored here
 
-    // Accesors and mutators
+    // Accessors and mutators
     public String getName() {
         return name;
     }
@@ -64,9 +64,8 @@ public class AntiprismModel {
         this.height = height;
     }
     
-    
     /**
-     * Declares an antiprism base
+     * Declares a base of a wedge
      * @author vbohudskyi
      * @version 1.0
      */
@@ -74,12 +73,13 @@ public class AntiprismModel {
     {
         @Expose(serialize = false, deserialize = true)
         @SerializedName("type")
-        private String type; // base type is stored here
+        private String type; // wedges base type is stored here
         
         @Expose(serialize = false, deserialize = true)
-        @SerializedName("width")
-        private double width; // base width is stored here
-
+        @SerializedName("radius")
+        private double radius; //wedges base radius is stored here
+        
+        // Accessors and mutators
         public String getType() {
             return type;
         }
@@ -88,14 +88,12 @@ public class AntiprismModel {
             this.type = type;
         }
 
-        public double getWidth() {
-            return width;
+        public double getRadius() {
+            return radius;
         }
 
-        public void setWidth(double width) {
-            this.width = width;
+        public void setRadius(double radius) {
+            this.radius = radius;
         }
-        
-        
     }
 }

@@ -164,10 +164,7 @@ public final class M {
        
        public static final String EVOLUTION_TOWER = "The evolution tower";
        public static final String WORLD_TRADE_CENTER = "One world trade center";
-       /****************************************/
-       
-       
-      
+       /****************************************/    
    }
    
    public static final class menus

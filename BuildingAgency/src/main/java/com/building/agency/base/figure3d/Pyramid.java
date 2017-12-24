@@ -24,8 +24,8 @@ public class Pyramid extends Prismatoid {
      */
     public Pyramid(Figure2d base, double height) {
         super(M.figure_3d.PYRAMID, base.getCurrentFigure());
-        this.base = base;
-        this.height = height;
+        this.base = base; // pyramid base is assigned here
+        this.height = height; // pyramid height is assigned here
     }
     
 }
