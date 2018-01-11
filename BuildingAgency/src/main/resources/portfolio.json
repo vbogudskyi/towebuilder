@@ -108,6 +108,15 @@
                             "radius": "50"
                         },
                 "Height": 100    
+            },
+                                    {
+                "name": "Death Star",
+                "type": "sphere",
+                "base": {
+                            "type": "circle",
+                            "radius": "50"
+                        },
+                "Height": 100    
             }
         ],
         "wedges": [
@@ -123,5 +132,96 @@
             }
         ]
 
+    },
+    "resurses":{
+        "circle": [
+            {
+                "name": "Circle",
+                "type": "circle",
+                "radius": 50
+            }
+        ],
+        "parallelogram": [
+            {
+                "name": "Rectangle",
+                "type": "parallelogram",
+                "width": 100,
+                "height": 50,
+                "alpha": 90
+            },
+            {
+                "name": "Sqare",
+                "type": "parallelogram",
+                "width": 100,
+                "height": 100,
+                "alpha": 90
+            },
+            {
+                "name": "Romb",
+                "type": "parallelogram",
+                "width": 100,
+                "height": 100,
+                "alpha": 45
+            }            
+        ],
+        "polygon": [
+            {
+                "name": "Pentagon",
+                "type": "polygon",
+                "sides": 5,
+                "radius": 50
+            },
+            {
+                "name": "Hexagon",
+                "type": "polygon",
+                "sides": 6,
+                "radius": 50
+            },
+            {
+                "name": "Octagon",
+                "type": "polygon",
+                "sides": 8,
+                "radius": 50
+            }            
+        ],
+        "rectangle": [
+            {
+                "name": "Rectangle",
+                "type": "rectangle",
+                "width": 50,
+                "height": 100,
+                "alpha": 90
+            }
+        ],
+        "romb": [
+            {
+                "name": "Lozenge",
+                "type": "romb",
+                "width": 100,
+                "alpha": 45
+            },
+            {
+                "name": "Kite",
+                "type": "romb",
+                "width": 100,
+                "alpha": 36
+            }            
+        ],
+        "triangle": [
+            {
+                "name": "Sphinx nose",
+                "type": "triangle",
+                "a": 100,
+                "b": 100,
+                "c": 70
+            },
+            {
+                "name": "Euclid triangle",
+                "type": "triangle",
+                "a": 100,
+                "b": 100,
+                "c": 100
+            }            
+        ]
     }
 }

@@ -17,7 +17,7 @@ import java.util.Comparator;
 public class ModelUtils<M> {
     
     private ArrayUtils<M> data = null;
-    private Class<M> clazz = null;//
+    private Class<M> clazz = null;//parameter type M
    
     /**
      * Declare the Model Utils constructor
@@ -45,16 +45,34 @@ public class ModelUtils<M> {
      * @version 1.0
      */
     public boolean addData(M data) {
-         boolean added = false;
-         int count = this.data.getCount();
-         int capacity = this.data.getCapacity();
+         boolean added = false;//default parameter
+         int count = this.data.getCount();//gets the count of data in the Array
+         int capacity = this.data.getCapacity();//gets the capacity of the Array
          
          if(count < capacity) {
-             this.data.addData(data);
+             this.data.addData(data);//adds the data into the Array
              added = true;
          }
          return added;
      }
+    /**
+     * Declare the add all data method
+     * @param data to be added
+     * @param n number of data to be added
+     * @param start position to add data
+     */
+    public void addAllData(M[] data, int n, int start){
+        this.data.addAllData(data, n, start);//adds all the data into the Array
+    }
+    
+    /**
+     * declare the add all data without the start index method
+     * @param data to be added
+     * @param n number of data to be added
+     */
+    public void addAllData(M[] data, int n) {
+        addAllData(data, n, 0); //call the addAllData method
+    }
     
     /**
      * Method to find data based on the index
@@ -65,7 +83,7 @@ public class ModelUtils<M> {
     public M findData(int index) {
          M value = null;
          if(index>=0) {
-           value = (M)this.data.findData(index);
+           value = (M)this.data.findData(index);//call the findData method
          }   
       
           return value;
@@ -79,9 +97,9 @@ public class ModelUtils<M> {
      */
     public int findIndex(M data) {
         
-        int index = -1;
+        int index = -1;//assigning default value
         if(data != null){
-            index = this.data.findIndex(data);
+            index = this.data.findIndex(data);//calling the findIndex method
         }
         return index;
     }
@@ -93,9 +111,9 @@ public class ModelUtils<M> {
      * @version 1.0
      */
     public void changeData(int index, M newData ) {
-      M change = findData(index);
+      M change = findData(index);//assigning the index
         if(change != null) {
-           this.data.changeData(index, newData);
+           this.data.changeData(index, newData);//changes the data by index
         }
         
     }
@@ -107,14 +125,14 @@ public class ModelUtils<M> {
      * @version 1.0
      */
     public void changeAllData(M data, M newData) {
-        int capacity = this.data.getCapacity();
+        int capacity = this.data.getCapacity();//assigning the capacity of the Array
         
-        if(data != null && this.data.findIndex(data) != -1 ){
+        if(data != null && this.data.findIndex(data) != -1 ){//validates the data and index
              for(int index = 0; index<capacity; index++) {
-                M current = findData(index);
+                M current = findData(index);//assigning the index
                 if(current.equals(data)) {
                
-                    this.data.changeData(index, newData);
+                    this.data.changeData(index, newData);//changes all the data
                 }
              }
         }
@@ -127,10 +145,10 @@ public class ModelUtils<M> {
      * @return if the data was removed
      */    
     public boolean removeData(M data) {
-        int remove = findIndex(data);
-        boolean removed = false;
+        int remove = findIndex(data);//assigning the index based on the data
+        boolean removed = false;//default value
             if(remove != -1) {
-                this.data= null;
+                this.data= null;//changes the data with null value
                 removed = true;
             }
             return removed;
@@ -143,10 +161,10 @@ public class ModelUtils<M> {
      * @return if the data was removed    
      */
     public boolean removeData(int index) {
-        M remove = findData(index);
-        boolean removed = false;
+        M remove = findData(index);//assigning the data based on index
+        boolean removed = false;//assigning default value
             if(remove != null) {
-                this.data.removeData(index);
+                this.data.removeData(index);//calls the removeData method
                 removed = true;
             }
             return removed;
@@ -158,13 +176,13 @@ public class ModelUtils<M> {
      * @version 1.0
      */
     public void removeAllData(M data) {
-        int capacity =  this.data.getCapacity();
+        int capacity =  this.data.getCapacity();//assigning the capacity of th Array
         
-        if(data != null && this.data.findIndex(data) != -1) {
+        if(data != null && this.data.findIndex(data) != -1) {//validates the data and index
             for(int index =0; index < capacity; index++) {
-                M current = findData(index);
+                M current = findData(index);//assign the data based on the index
                 if(current.equals(data)) {
-                    this.data.removeData(index);
+                    this.data.removeData(index);//removes all data
                 }
             }
         }
@@ -177,40 +195,37 @@ public class ModelUtils<M> {
      */    
     public void sort(Comparator <M> comparator) {
         
-        this.data.sort(comparator);
+        this.data.sort(comparator);//call the Sort method
     }
     
     /**
      * Declare Extract Elements method
-     * @param data in the Array
      * @param n is the number of data to be removed
-     * @param start place to remove data
-     * @return 
+     * @param start place to remove data     *
+     * @return the extracted data
      */
-    public  M[] extractElements(M[] data, int n, int start){
-        M[] temp = (M[]) Array.newInstance(clazz, n);
-        if(start > -1 && n< this.data.getCapacity()){ //checking the boundaries
-            for(int i = start; i < (start+n); i++){
-            temp[i-start] = data[i];
-            }            
+    public M[] extractElements( int n, int start){
+        M[] temp = (M[]) Array.newInstance(clazz, n);//create a new Array of type A containing n elements
+        if (this.data != null){
+            temp = (M[]) this.data.extractElements(n, start);//calls the extractElements method
         }
         return temp;
     }
     
+    
     /**
-     * Declare the get all data method
-     * @param data
-     * @param start
-     * @param end
+     * Declare the extract Element by index method
+     * @param start position to extract element
+     * @param end position to extract element
      * @return the entire Array data
      */
-    public M[] extractElementsByIndexes(M[] data, int start, int end) {
-        return extractElements(data,end-start,start); 
+    public M[] extractElementsByIndexes(int start, int end) {
+        return extractElements(end-start,start); //Extract elements from start to end
             
     }
 
-    // add extract element in data storagge,and arrayutils
-    //create method add all data, check for capacity, in data sotrage and up. 
+    // add extract element in data storagge,and arrayutils*
+    //create method add all data, check for capacity, in data sotrage and up. *
 
 }
     
