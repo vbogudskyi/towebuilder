@@ -20,6 +20,7 @@ public abstract class ArrayUtils<A> {
     
     public abstract void onSuccess(A data);// method calls in cases of success 
     public abstract void onFailure(A data);// method calls in case of failure
+    private Class<A> clazz;//
     
     /**
      * Declare the constructor for ArrayUtils 
@@ -38,10 +39,29 @@ public abstract class ArrayUtils<A> {
      */
     public void addData(A data) {
         if (this.data.addData(data)) {
-           onSuccess(data);//calls the onSuccess class
+           onSuccess(data);//calls the onSuccess method
         } else 
-           onFailure(data);
+           onFailure(data);//call the onFail method
     }  
+    /**
+     * Declare add all data method
+     * @param data to be added
+     * @param n number of data to be added
+     * @param start position to add data
+     */
+    public void addAllData(A[] data, int n, int start){
+        this.data.addAllData(data, n, start);//calls the addAllData method
+                                             //from data storage
+    }
+    
+    /**
+     * Declare method to add all data without start position
+     * @param data to be added
+     * @param n number of data to be added
+     */
+    public void addAllData(A[] data, int n){
+        addAllData(data,n,0);//calls the addAllData method
+    }
     
     /**
      * method to find data
@@ -50,10 +70,11 @@ public abstract class ArrayUtils<A> {
      */
     public void findData(A data) {
         if(this.data.findData(data) != -1){
-            onSuccess(data);
+            onSuccess(data);//calls the onSuccess method
         } else
-            onFailure(data);
+            onFailure(data);//calls the onFailure method
     }
+    
     
     /**
      * method to find a value based on index
@@ -62,9 +83,9 @@ public abstract class ArrayUtils<A> {
      * @version 1.0
      */
     public A findData(int index) {
-        A value = null;
+        A value = null;//assign a null value
         if(index >=0) {
-           value = (A)this.data.findData(index);
+           value = (A)this.data.findData(index);//get data by index
         } 
      return value;       
     }
@@ -76,9 +97,9 @@ public abstract class ArrayUtils<A> {
      * @version 1.0
      */
     public int findIndex(A data) {
-        int index = 0;
+        int index = 0;//assign 0 value
         if(data != null) {
-            index = this.data.findData(data);
+            index = this.data.findData(data);//get data by data
         }
         return index;
     }
@@ -90,7 +111,7 @@ public abstract class ArrayUtils<A> {
      */
     public int getCapacity(){
         
-      return this.data.getCapacity();  
+      return this.data.getCapacity();  //get capacity of the Array
     }
     
     /**
@@ -99,7 +120,7 @@ public abstract class ArrayUtils<A> {
      * @version 1.0
      */
     public int getCount() {
-        return this.data.getCount();
+        return this.data.getCount();//get the amount of the elements in the Array
     }
      
     /**
@@ -110,22 +131,22 @@ public abstract class ArrayUtils<A> {
      */
     public void changeData(A data, A newData) {
         if(this.data.changeData(data,newData)){
-           onSuccess(newData); 
+           onSuccess(newData); //calls the onSuccess method
         } else
-            onFailure(newData);
+            onFailure(newData); //calls the onFailure method
     }
     
     /**
      * method to change data by index
-     * @param index wher the data is located
+     * @param index where the data is located
      * @param newData changes the old data
      * @version 1.0
      */
     public void changeData(int index, A newData) {
         if(this.data.changeData(index, newData)) {
-            onSuccess(newData);
+            onSuccess(newData);//calls the onSuccess method
         } else
-            onFailure(newData);
+            onFailure(newData);//calls the onFailure method
     }
     
     /**
@@ -135,9 +156,9 @@ public abstract class ArrayUtils<A> {
      */
     public void removeData(A data) {
         if(this.data.removeData(data)) {
-            onSuccess(data);
+            onSuccess(data);//calls the onSuccess method
         } else
-            onFailure(data);
+            onFailure(data);//calls the onFailure method
     }
     
     /**
@@ -147,9 +168,9 @@ public abstract class ArrayUtils<A> {
      */
     public void removeData(int index) {
         if(this.data.removeData(index)) {
-            onSuccess((A)data);
+            onSuccess((A)data);//calls the onSuccess method
         } else
-            onFailure((A)data);
+            onFailure((A)data);//calls the onFailure method
     }
     
     /**
@@ -158,23 +179,35 @@ public abstract class ArrayUtils<A> {
      * @version 1.0
      */
     public void sort(Comparator <A> comparator){
-       this.data.sort(comparator);
-       
-           
-      
-    }      
+       this.data.sort(comparator);  //sort the data with the comparator's conditions     
+    } 
+    
+    /**
+     *Declare extract Element Method
+     * @param n number of data to be removed
+     * @param start place to remove data
+     * @return the extracted data
+     */
+    public A[] extractElements(int n, int start){
+        A[] temp = (A[]) Array.newInstance(clazz, n);//create a new Array of type A 
+        if(data != null ){                           //containing n elements
+            temp = (A[]) this.data.extractElements(n, start);//extract data from start indext 
+        }                                                    //to n elements
+        return temp;
+    }
 
     
     /**
      * Declare the Data Storage of incoming data
      * @version 1.0
+     * @param <B> parameter type of data
      */
    
     protected static class DataStorage<B> {
-        private B[] data;// Data Sorage data is stored here
+        private final B[] data;// Data Sorage data is stored here
         private int count;//how much data is in the Array
         private final int capacity;//maximum Arrays that can be added
-        
+        private final Class<B> clazz;//--------->need to check
         /**
          * Default constructor for Data Storage
          * @param clazz - is the information of parameterized type of Array element
@@ -182,8 +215,9 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public DataStorage(Class<B> clazz, int capacity){
-            this.capacity = capacity;
-            this.count = 0;
+            this.clazz = clazz;//get type of adata
+            this.capacity = capacity;//get capacit
+            this.count = 0;//count is 0
             data = (B[])Array.newInstance(clazz, capacity);//creates an Array with B type data and capacity
         }
        
@@ -194,13 +228,38 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public boolean addData(B data){
-            boolean added = false;
+            boolean added = false;//default is false
             if (count < capacity) {
-               this.data[count++] = data;
-               added = true;
+               this.data[count++] = data;//adds new data
+               added = true;//return true
             }
             return added;
         }
+        
+        /**
+         * Declare add all data method
+         * @param data to be added
+         * @param n data need to be added
+         * @param start position to add data
+         */
+        public void addAllData(B[] data, int n, int start){           
+            if((start > -1) && ((start+n) < data.length)){//verifying that the start is within the Array boundaries
+                if((count > -1) && (n < (capacity-count))){//verifing the bounderies of the Array              
+                System.arraycopy(data, 0, this.data, start, n);//Writing data into storage
+                count+=data.length;//increase the count of the elements
+                }
+            }
+        }
+        
+        /**
+         * Declare add all Data without Start index
+         * @param data to be added
+         * @param n data need to be added
+         */
+        public void addAllData(B[] data, int n) {
+            addAllData(data,n,0);//Write data from the begining of the Array
+        }    
+        
         
         /**
          * Method to find specific data
@@ -209,9 +268,9 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public int findData(B data) {
-            int place = -1;
+            int place = -1;//adding the default index
             for (int index = 0; index < count; index++){
-                if (data==this.data[index]) {
+                if (data==this.data[index]) {//if data is found an index is asigned
                     place = index;
                     break;
                 }
@@ -227,8 +286,8 @@ public abstract class ArrayUtils<A> {
          */
         public B findData(int index) {
             B value = null;
-            if ((index < capacity) && (index >= 0)) {
-               value = data[index];
+            if ((index < capacity) && (index >= 0)) {//verify the index 
+               value = data[index];//assign the data by index
             }
             return value;
         }
@@ -239,7 +298,7 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public int getCapacity() {
-        return this.capacity;
+        return this.capacity;//getting the capacity
         }
 
         /**
@@ -248,7 +307,7 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public int getCount() {
-        return this.count;
+        return this.count;//getting the count of data in the Array
         }
         
         /**
@@ -259,10 +318,10 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public boolean changeData(B data, B newData) {
-            int change = findData(data);
-            boolean added = false;
+            int change = findData(data);//find the data in the Array
+            boolean added = false;//default value is false
                 if(change != -1){
-                   this.data[change] = newData; 
+                   this.data[change] = newData; //change the new data 
                    added = true;
                 }
             
@@ -278,9 +337,9 @@ public abstract class ArrayUtils<A> {
          */
         public boolean changeData(int index,B newData) {
            
-            boolean added = false;
-                if((index > 0) || (index <= capacity)){
-                    this.data[index] = newData;
+            boolean added = false;//default value is alse
+                if((index > -1) || (index < capacity)){//checking the index validity
+                    this.data[index] = newData;//change data by index
                     
                     added = true;
                 }
@@ -312,14 +371,14 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public boolean removeData(B data) {
-            int remove = findData(data);
-            boolean removed = false;
+            int remove = findData(data);//finding the data in the Array
+            boolean removed = false;//default value is false
                 if(remove != -1) {
-                    this.data[remove]= null;
+                    this.data[remove]= null;//assign null to remove the data
                     removed = true;
                  }
-            drop();
-            count--;
+            drop();//call the drop method
+            count--;//reduce the amount of elements in Array
             return removed;
         }
         /**
@@ -329,13 +388,13 @@ public abstract class ArrayUtils<A> {
          * @version 1.0
          */
         public boolean removeData(int index) {
-            boolean removed = false;
-            if((index > 0) || (index <= capacity)) {
-                this.data[index] = null;
+            boolean removed = false;//default value is false
+            if((index > -1) || (index < capacity)) {//checking the index validity
+                this.data[index] = null;//assign null to remove the data by index
                 removed = true;
             }
-            drop();
-            count--;
+            drop();//call the drop method
+            count--;//reduce the amount of elements in Array
             return removed;
         }
         /**
@@ -356,6 +415,33 @@ public abstract class ArrayUtils<A> {
                     }
                 }
             }
+        }
+        
+         /**
+          * Declare Extract Elements method
+          * @param n is number of data to be removed
+          * @param start place to remove data
+          * @return the extracted data
+          */
+        public B[] extractElements(int n, int start){
+            B[] temp = (B[])Array.newInstance(clazz, n);//create a new Array of type A containing n elements
+            if(start > -1 && n < this.data.length){
+                for(int i = start; i<(start+n); i++){
+                    temp[i-start]=data[i];//extract elements
+                }
+            }
+            return temp;
+        }
+        
+        /**
+         * Declare Extract Elements by Index method
+         * @param start place to remove data
+         * @param end place to remove data
+         * @return 
+         */
+        public B[] extractElementByIndex(int start, int end){
+            
+            return extractElements(end-start, start);//Extract elements from start to end
         }
         
         
