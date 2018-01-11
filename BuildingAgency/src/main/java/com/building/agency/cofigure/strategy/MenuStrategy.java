@@ -15,7 +15,7 @@ import com.building.agency.cofigure.strategy.menu.FrustaMenu;
 import com.building.agency.cofigure.strategy.menu.MainMenu;
 import com.building.agency.cofigure.strategy.menu.PrismMenu;
 import com.building.agency.cofigure.strategy.menu.PyramidsMenu;
-import com.building.agency.cofigure.strategy.menu.ResourcesMenu;
+import com.building.agency.cofigure.strategy.menu.ResourceMenu;
 import com.building.agency.cofigure.strategy.menu.SpheresMenu;
 import com.building.agency.cofigure.strategy.menu.WedgesMenu;
 import com.building.agency.cofigure.strategy.menu.portfolio.AntiprismPortfolioMenu;
@@ -61,6 +61,7 @@ public class MenuStrategy {
     /**
      * Menu strategy default constructor
      * @param context application context
+     * @version 1.0
      */
     public MenuStrategy(ApplicationContext context)
     {
@@ -70,6 +71,7 @@ public class MenuStrategy {
      * Method creates a new menu
      * @param menu_type type of creating menu
      * @return created menu object
+     * @version 1.0
      */ 
     private Menu createMenu(int menu_type)
     {
@@ -79,7 +81,7 @@ public class MenuStrategy {
         {
             case M.menus.RESOURCE_MENU: // resources menu is chosen
             { 
-                menu = new ResourcesMenu(); //resources menu is created
+                menu = new ResourceMenu(context); //resources menu is created
                 break;
             }
             case M.menus.MAIN_MENU: // main menu is chosen
@@ -166,6 +168,8 @@ public class MenuStrategy {
     /**
      * Method generates a main menu
      * @return menu
+     * @version 1.0
+     * @deprecated 
      */
     public Menu getMainMenu()
     {
@@ -181,6 +185,8 @@ public class MenuStrategy {
     /**
      * Method generates a resource menu
      * @return menu
+     * @version 1.0
+     * @deprecated 
      */
     public Menu getResourceMenu()
     {
@@ -194,14 +200,35 @@ public class MenuStrategy {
     
     /**
      * Method generates sub menus
-     * @param position - type of sub menu
+     * @param position - type of menu
      * @return menu
+     * @version 1.0
      */
-    public Menu getSubMenu(int position)
+    public Menu getCurrentMenu(int position)
     {
         Menu currentMenu = null; // a current sub menu to work
         switch(position)
          {
+            case M.menus.MAIN_MENU:
+            {
+              if(mainMenu == null) //if main menu is not instantiated
+              {
+                  mainMenu = createMenu(position); // creates a main menu
+              }
+              currentMenu = mainMenu;
+              break;
+            }
+            
+            case M.menus.RESOURCE_MENU: // if resources menu is not instantiated
+            {
+                if(resourceMenu == null)
+                {
+                    resourceMenu = createMenu(position); // creates a resource menu
+                }
+                currentMenu = resourceMenu;
+                break;
+            }
+            
              case M.menus.SPHERE_MENU: // if Spheres are chosen
              {
                  if(spheresSubMenu == null) // check if spheres sub menu is created
@@ -340,8 +367,9 @@ public class MenuStrategy {
     }
     
     /**
-     * method prints an avaliable menu at the console
+     * Method prints an avaliable menu at the console
      * @param menu printing menu
+     * @version 1.0
      */
     public void printMenu(Menu menu)
     {
@@ -360,6 +388,7 @@ public class MenuStrategy {
      * @param items available choices
      * @param scanner - console scanner
      * @return choice
+     * @version 1.0
      */
      public String makeUserChoice(List<String> items, Scanner scanner)
      {

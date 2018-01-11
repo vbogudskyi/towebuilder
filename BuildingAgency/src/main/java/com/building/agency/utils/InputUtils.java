@@ -48,21 +48,7 @@ public class InputUtils {
     public static final void chooseMenuItem(ApplicationContext context, int menuType)
     {
        CompanyContext ctx = (CompanyContext)context; // context explicit cast to CpmpanyContext
-       Menu menu; // current menu
-       switch(menuType)
-       {
-           case M.menus.MAIN_MENU:
-           {
-               menu = ctx.getMenus().getMainMenu(); // main menu is built and created
-               break;
-           }
-           
-           default:
-           {
-               menu = ctx.getMenus().getSubMenu(menuType); // submenu is built and created
-               break;
-           }
-       }
+       Menu menu = ctx.getMenus().getCurrentMenu(menuType); // menu is built and created
        if(menu != null)
        {
            menu.populateMenu(); // menu ites and listeners are set
